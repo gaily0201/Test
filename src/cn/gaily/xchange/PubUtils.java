@@ -17,6 +17,15 @@ public class PubUtils {
 
 	public static final String PROPERTY_FILEPATH ="config.properties";
 	
+	/**
+	 * <p>方法名称：getProperty</p>
+	 * <p>方法描述：获取配置文件属性</p>
+	 * @param key	属性文件的key
+	 * @return
+	 * @author xiaoh
+	 * @since  2014-9-3
+	 * <p> history 2014-9-3 xiaoh  创建   <p>
+	 */
 	public static String getProperty(String key){
 		Properties prop = new Properties();
 		InputStream fis =null;
