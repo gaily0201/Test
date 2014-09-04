@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="orm"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-common-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-queries-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-queryparser-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="lib/velocity-1.7.jar" sourcepath="C:/Users/ctt/Desktop/velocity-1.7/velocity-1.7/src"/>
+	<classpathentry kind="lib" path="lib/velocity-1.7-dep.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

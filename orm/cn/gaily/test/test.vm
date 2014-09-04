@@ -1,0 +1,38 @@
+package cn.gaily.vo;
+
+/**
+ * <p>Title: $!{tableName}VO</P>
+ * <p>Description: </p>
+ * @author xiaoh
+ * @version 1.0
+ * @since $!{nowDate}
+ */
+public class $!{tableName}VO {
+	
+#foreach($column in $columns)
+	
+	/**
+	*  ${column} auto created by velocity
+	*/
+	public static String $!{column} = $!{column};
+#end
+
+
+#foreach($method in $methods)
+
+	/**
+	*  get$!{method} auto created by velocity
+	*/
+	public String get$!{method}(){
+	  return this.$!{method};
+	}
+	
+	/**
+	*  set$!{method} auto created by velocity
+	*/
+	public void set$!{method}(String $!{method}){
+	  this.$!{method} = $!{method}
+	}
+#end
+
+}
