@@ -1,4 +1,4 @@
-package cn.gaily.xchange;
+package cn.gaily.orm.pub;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,10 +18,10 @@ public class JdbcUtils{
 	private static ResultSet  		rs 		= null;
 	private static Connection 		conn 	= null;
 	private static Statement 		st 		= null;
-	private static String 		DRIVER 		= "";
-	private static String 		URL 		= "";
-	private static String 		DEFAULT_USERNAME 	= "";
-	private static String 		DEFAULT_PASSWORD 	= "";
+	private static String 		DRIVER 		= "oracle.jdbc.driver.OracleDriver";
+	private static String 		URL 		= "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+	private static String 		DEFAULT_USERNAME 	= "uap63";
+	private static String 		DEFAULT_PASSWORD 	= "1";
 	
 	public JdbcUtils(String username, String password){
 		this.DEFAULT_USERNAME = username;
@@ -29,16 +29,8 @@ public class JdbcUtils{
 	}
 	
 	static{
-		
-		DRIVER = PubUtils.getProperty("DB_DRIVER");
-		URL    = PubUtils.getProperty("DB_URL");
-		DEFAULT_USERNAME=PubUtils.getProperty("DB_USERNAME");
-		DEFAULT_PASSWORD=PubUtils.getProperty("DB_PASSWORD");
-		
 		try {
-			if(!PubUtils.isEmpty(DRIVER)){
-				Class.forName(DRIVER);
-			}
+			Class.forName(DRIVER);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			release(conn, st, rs);
@@ -86,19 +78,16 @@ public class JdbcUtils{
 		if(rs!=null){
 			try{
 				rs.close();
-				rs = null;
 			} catch (SQLException e) {
 			}finally{
 				if(st!=null){
 					try{
 						st.close();
-						st  =null;
 					}catch(SQLException e){
 					}finally{
 						if(conn!=null){
 							try{
 								conn.close();
-								conn = null;
 							}catch(SQLException e){
 							}
 						}

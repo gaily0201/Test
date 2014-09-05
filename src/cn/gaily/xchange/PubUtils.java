@@ -56,7 +56,7 @@ public class PubUtils {
 	 */
 	public static String getSequence(){
 		String sequence = UUID.randomUUID().toString().replace("-", "");
-		return sequence.substring(sequence.length()-20);
+		return sequence.substring(sequence.length()-20).toUpperCase();
 	}
 	
 	/**

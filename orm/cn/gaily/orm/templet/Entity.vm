@@ -1,0 +1,21 @@
+package cn.gaily.vo;
+import cn.gaily.orm.annotation.Column;
+import cn.gaily.orm.annotation.Table;
+import cn.gaily.orm.annotation.PrimaryKey;
+
+##首字母大写
+#macro(initUpperCase $field)
+$field.toUpperCase().substring(0,1)$field.substring(1)##
+#end
+
+/**
+ * <p>Title: $!{tableName}VO</P>
+ * <p>Description: </p>
+ * @author xiaoh
+ * @version 1.0
+ * @since $!{nowDate}
+ */
+@Table(tableName="$!{realTableName}")
+public class $!{tableName}VO {
+
+}

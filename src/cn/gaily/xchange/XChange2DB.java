@@ -68,12 +68,16 @@ public class XChange2DB{
 			return;
 		}
 		
-		if(conn==null){
-			try {
-				conn = JdbcUtils.getConnectionThrowable(DB_USERNAME, DB_PASSWORD);
-			} catch (SQLException e) {
-				log2db("获取数据库链接失败", e.getMessage()+", 获取数据库链接失败, 数据库名为:"+DB_USERNAME+",密码为:"+DB_PASSWORD);
+		try {
+			if(conn==null||conn.isClosed()){
+				try {
+					conn = JdbcUtils.getConnectionThrowable(DB_USERNAME, DB_PASSWORD);
+				} catch (SQLException e) {
+					log2db("获取数据库链接失败", e.getMessage()+", 获取数据库链接失败, 数据库名为:"+DB_USERNAME+",密码为:"+DB_PASSWORD);
+				}
 			}
+		} catch (SQLException e2) {
+			throw new RuntimeException("连接出错！");
 		}
 		try {
 			conn.setAutoCommit(false);
@@ -91,13 +95,13 @@ public class XChange2DB{
 			for(String sql:sqls){
 				sb.append(sql).append("  ");
 			}
-			log2db("插入数据库出现异常", e.getMessage()+"批量执行的sql为："+sb.toString());
-		} finally{
 			try {
 				conn.rollback(sp);
-			} catch (SQLException e) {
-				e.printStackTrace();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
 			}
+			log2db("插入数据库出现异常", e.getMessage()+"批量执行的sql为："+sb.toString().replaceAll("(", "||").replaceAll(")", "||"));
+		} finally{
 			JdbcUtils.release(conn, st, null);
 		}
 		
@@ -110,13 +114,12 @@ public class XChange2DB{
 	 * @param objs			同一类型的实体数组
 	 * @param tableName		表名				与实体的数据库表相对应
 	 * @param pkColumn		表pk字段名称		构建Insert语句时不需传入
-	 * @param pkValue		表pk值			构建Insert语句时不需传入
 	 * @return sql			返回insert语句
 	 * @author xiaoh
 	 * @since  2014-9-3
 	 * <p> history 2014-9-3 xiaoh  创建   <p>
 	 */
-	public static List<String> buildIstUpdtSql(Object[] objs, String tableName, String pkColumn, String pkValue){
+	public static List<String> buildIstUpdtSql(Object[] objs, String tableName, String pkColumn){
 		if(objs==null||objs.length<=0){
 			throw new RuntimeException("未传入实体！");
 		}
@@ -132,8 +135,9 @@ public class XChange2DB{
 		}
 		//保存sql
 		List<String> sqls = new ArrayList<String>();
-		
+		String pkValue = "";
 		for(Map<String,String> valueMap :valueMaps){
+			pkValue = valueMap.get(pkColumn);
 			boolean recordExist = recordExist(tableName, pkColumn, pkValue);
 			String sql = null;
 			Iterator<Entry<String, String>> it = valueMap.entrySet().iterator();
@@ -260,15 +264,22 @@ public class XChange2DB{
 		if(PubUtils.isEmpty(pkColumn)||PubUtils.isEmpty(pkValue)){
 			return false;
 		}
-		if(conn==null){
-			conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
-		}
 		try {
-			pst = conn.prepareStatement(checkRecordExistSql);
-			pst.setString(1, tableName.toUpperCase());
-			pst.setString(2, pkColumn);
-			pst.setString(3, pkValue);
-			rs = pst.executeQuery();
+			if(conn.isClosed()){
+				conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		String sql = "SELECT COUNT(1) FROM "+tableName+" WHERE "+pkColumn+"='"+pkValue+"'";
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+//			pst = conn.prepareStatement(checkRecordExistSql);
+//			pst.setString(1, tableName.toUpperCase());
+//			pst.setString(2, pkColumn);
+//			pst.setString(3, pkValue);
+//			rs = pst.executeQuery();
 			if(!rs.next()||rs.getInt(1)!=1){
 				return false;
 			}
@@ -294,9 +305,8 @@ public class XChange2DB{
 		if(PubUtils.isEmpty(tableName)){
 			return false;
 		}
-		if(conn==null){
-			conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
-		}
+		
+		conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
 		try {
 			pst = conn.prepareStatement(checkTableExistSql);
 			pst.setString(1, tableName.toUpperCase());
@@ -334,7 +344,7 @@ public class XChange2DB{
 		List<String> sqls = null;
 		String sql = null;
 		try {
-			sqls = buildIstUpdtSql(new XChangeLog[]{log}, LOG_TABLENAME, null, null);
+			sqls = buildIstUpdtSql(new XChangeLog[]{log}, LOG_TABLENAME, null);
 			if(sqls!=null&& sqls.size()==1){
 				sql = sqls.get(0);
 			}
@@ -345,7 +355,13 @@ public class XChange2DB{
 		if(PubUtils.isEmpty(sql)){
 			return;
 		}
-		if(conn==null){
+		boolean closed = true;
+		try{
+			closed = conn.isClosed();
+		}catch (SQLException e) {
+			throw new RuntimeException("连接异常！");
+		}
+		if(closed){
 			conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
 		}
 		try {
