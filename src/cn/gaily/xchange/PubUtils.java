@@ -69,4 +69,10 @@ public class PubUtils {
 	public static boolean isEmpty(String str){
 		return str==null||"".equals(str)?true: false;
 	}
+	
+	public static void main(String[] args){
+		for(int i=0;i<10;i++){
+			System.out.println(getSequence());
+		}
+	}
 }

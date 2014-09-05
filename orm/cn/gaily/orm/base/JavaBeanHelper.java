@@ -49,7 +49,7 @@ public class JavaBeanHelper {
 	public void buildEntity(String tableName){
 		List<FieldBean> fieldList = getFields(tableName);
 		if(fieldList==null||fieldList.size()<=0){
-			throw new RuntimeException("字段实体未构建成功！");
+			return;
 		}
 		
 		VelocityEngine ve = new VelocityEngine();
@@ -61,7 +61,7 @@ public class JavaBeanHelper {
 		vc.put("entityName", name.naming(tableName));
 		vc.put("fields", fieldList);
 		
-		File file = new File(System.getProperty("user.dir")+"\\orm\\cn\\gaily\\orm\\vos\\",name.naming(tableName)+"VO.java");
+		File file = new File(System.getProperty("user.dir")+ResourceManager.VO_SAVEPATH, name.naming(tableName)+"VO.java");
 		if(!file.exists()){
 			try {
 				file.createNewFile();
@@ -105,8 +105,12 @@ public class JavaBeanHelper {
 		fieldList = new ArrayList<FieldBean>();
 		FieldBean field = null;
 		try {
-			pst = conn.prepareStatement(ResourceManager.queryFiledSql);
-			pst.setString(1, tableName.toUpperCase());
+			String sql = ResourceManager.realqueryFiledSql;
+			if(sql.equals(ResourceManager.standardqueryFiledSql)){
+				tableName = tableName.toUpperCase();
+			}
+			pst = conn.prepareStatement(ResourceManager.realqueryFiledSql);
+			pst.setString(1, tableName);
 			rs = pst.executeQuery();
 			while(rs.next()){
 				field = new FieldBean();

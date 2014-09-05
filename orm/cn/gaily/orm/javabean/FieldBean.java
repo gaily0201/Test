@@ -19,7 +19,7 @@ public class FieldBean {
 	public String nullAble;
 	
 	public String comment;
-
+	
 	public String getColumnName() {
 		return columnName;
 	}

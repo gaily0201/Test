@@ -5,599 +5,549 @@ import cn.gaily.orm.annotation.PrimaryKey;
 
 
 /**
- * <p>Title: CrpasgshVO</P>
+ * <p>Title: CrpasKsHVO</P>
  * <p>Description: </p>
  * @author xiaoh
  * @version 1.0
  * @since 
  */
-@Table(tableName="crpas_gs_h")
-public class CrpasgshVO {
+@Table(tableName="crpas_ks_h")
+public class CrpasKsHVO {
 	/**
-	* BILLNO 
+	* BILLNO 单据号
 	*/
-	@Column(columnName="billno",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="billno",dataType="varchar",dataLength=50,nullAble="Y",comment="单据号")
 	private String BILLNO = "billno";
 	/**
-	* BUSITYPE 
+	* BUSITYPE 业务类型
 	*/
-	@Column(columnName="busitype",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="busitype",dataType="varchar",dataLength=50,nullAble="Y",comment="业务类型")
 	private String BUSITYPE = "busitype";
 	/**
-	* BILLTYPE 
+	* BILLTYPE 单据类型
 	*/
-	@Column(columnName="billtype",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="billtype",dataType="varchar",dataLength=50,nullAble="Y",comment="单据类型")
 	private String BILLTYPE = "billtype";
 	/**
-	* BILLMAKER 
+	* BILLMAKER 制单人
 	*/
-	@Column(columnName="billmaker",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="billmaker",dataType="varchar",dataLength=20,nullAble="Y",comment="制单人")
 	private String BILLMAKER = "billmaker";
 	/**
-	* BILLDATE 
+	* BILLDATE 单据日期
 	*/
-	@Column(columnName="billdate",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="billdate",dataType="char",dataLength=19,nullAble="Y",comment="单据日期")
 	private String BILLDATE = "billdate";
 	/**
-	* APPROVER 
+	* APPROVER 审批人
 	*/
-	@Column(columnName="approver",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="approver",dataType="varchar",dataLength=20,nullAble="Y",comment="审批人")
 	private String APPROVER = "approver";
 	/**
-	* APPROVESTATUS 
+	* APPROVESTATUS 审批状态
 	*/
-	@Column(columnName="approvestatus",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
+	@Column(columnName="approvestatus",dataType="int",dataLength=0,nullAble="Y",comment="审批状态")
 	private String APPROVESTATUS = "approvestatus";
 	/**
-	* APPROVENOTE 
+	* APPROVENOTE 审批批语
 	*/
-	@Column(columnName="approvenote",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="approvenote",dataType="varchar",dataLength=50,nullAble="Y",comment="审批批语")
 	private String APPROVENOTE = "approvenote";
 	/**
-	* APPROVEDATE 
+	* APPROVEDATE 审批时间
 	*/
-	@Column(columnName="approvedate",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="approvedate",dataType="char",dataLength=19,nullAble="Y",comment="审批时间")
 	private String APPROVEDATE = "approvedate";
 	/**
-	* SRCBILLTYPE 
+	* SRCBILLTYPE 来源单据类型
 	*/
-	@Column(columnName="srcbilltype",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="srcbilltype",dataType="varchar",dataLength=50,nullAble="Y",comment="来源单据类型")
 	private String SRCBILLTYPE = "srcbilltype";
 	/**
-	* SRCBILLID 
+	* SRCBILLID 来源单据id
 	*/
-	@Column(columnName="srcbillid",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="srcbillid",dataType="varchar",dataLength=50,nullAble="Y",comment="来源单据id")
 	private String SRCBILLID = "srcbillid";
 	/**
-	* CREATOR 
+	* CREATOR 创建人
 	*/
-	@Column(columnName="creator",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="creator",dataType="varchar",dataLength=20,nullAble="Y",comment="创建人")
 	private String CREATOR = "creator";
 	/**
-	* CREATIONTIME 
+	* CREATIONTIME 创建时间
 	*/
-	@Column(columnName="creationtime",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="creationtime",dataType="char",dataLength=19,nullAble="Y",comment="创建时间")
 	private String CREATIONTIME = "creationtime";
 	/**
-	* MODIFIER 
+	* MODIFIER 修改人
 	*/
-	@Column(columnName="modifier",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="modifier",dataType="varchar",dataLength=20,nullAble="Y",comment="修改人")
 	private String MODIFIER = "modifier";
 	/**
-	* MODIFIEDTIME 
+	* MODIFIEDTIME 修改时间
 	*/
-	@Column(columnName="modifiedtime",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="modifiedtime",dataType="char",dataLength=19,nullAble="Y",comment="修改时间")
 	private String MODIFIEDTIME = "modifiedtime";
 	/**
-	* PK_ORG 
+	* PK_ORG 组织
 	*/
-	@Column(columnName="pk_org",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="pk_org",dataType="varchar",dataLength=20,nullAble="Y",comment="组织")
 	private String PK_ORG = "pk_org";
 	/**
-	* PK_ORG_V 
+	* PK_ORG_V 组织版本信息
 	*/
-	@Column(columnName="pk_org_v",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="pk_org_v",dataType="varchar",dataLength=50,nullAble="Y",comment="组织版本信息")
 	private String PK_ORG_V = "pk_org_v";
 	/**
-	* PK_GROUP 
+	* PK_GROUP 集团
 	*/
-	@Column(columnName="pk_group",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="pk_group",dataType="varchar",dataLength=20,nullAble="Y",comment="集团")
 	private String PK_GROUP = "pk_group";
 	/**
-	* TRANSTYPEPK 
+	* TRANSTYPEPK 交易类型pk
 	*/
-	@Column(columnName="transtypepk",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="transtypepk",dataType="varchar",dataLength=50,nullAble="Y",comment="交易类型pk")
 	private String TRANSTYPEPK = "transtypepk";
 	/**
-	* EMENDENUM 
+	* EMENDENUM 修订枚举
 	*/
-	@Column(columnName="emendenum",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
+	@Column(columnName="emendenum",dataType="int",dataLength=0,nullAble="Y",comment="修订枚举")
 	private String EMENDENUM = "emendenum";
 	/**
-	* BILLVERSIONPK 
+	* BILLVERSIONPK 单据版本pk
 	*/
-	@Column(columnName="billversionpk",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="billversionpk",dataType="varchar",dataLength=50,nullAble="Y",comment="单据版本pk")
 	private String BILLVERSIONPK = "billversionpk";
 	/**
-	* PK_GS_H 
+	* TRANSTYPE 交易类型
 	*/
-	@Column(columnName="pk_gs_h",dataType="CHAR",dataLength=20,nullAble="N",comment="")
-	private String PK_GS_H = "pk_gs_h";
-	/**
-	* V_PTAJLX 
-	*/
-	@Column(columnName="v_ptajlx",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_PTAJLX = "v_ptajlx";
-	/**
-	* V_PTAJZJ 
-	*/
-	@Column(columnName="v_ptajzj",dataType="CHAR",dataLength=20,nullAble="Y",comment="")
-	private String V_PTAJZJ = "v_ptajzj";
-	/**
-	* V_JCY_QSSH 
-	*/
-	@Column(columnName="v_jcy_qssh",dataType="VARCHAR2",dataLength=100,nullAble="Y",comment="")
-	private String V_JCY_QSSH = "v_jcy_qssh";
-	/**
-	* V_JCY_AJMC 
-	*/
-	@Column(columnName="v_jcy_ajmc",dataType="VARCHAR2",dataLength=200,nullAble="Y",comment="")
-	private String V_JCY_AJMC = "v_jcy_ajmc";
-	/**
-	* V_JCY_CBR 
-	*/
-	@Column(columnName="v_jcy_cbr",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_JCY_CBR = "v_jcy_cbr";
-	/**
-	* V_GAJ_ZHJG 
-	*/
-	@Column(columnName="v_gaj_zhjg",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_GAJ_ZHJG = "v_gaj_zhjg";
-	/**
-	* V_GAJ_ZJBF 
-	*/
-	@Column(columnName="v_gaj_zjbf",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_GAJ_ZJBF = "v_gaj_zjbf";
-	/**
-	* V_GAJ_AJBH 
-	*/
-	@Column(columnName="v_gaj_ajbh",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_GAJ_AJBH = "v_gaj_ajbh";
-	/**
-	* T_FY_SLSJ 
-	*/
-	@Column(columnName="t_fy_slsj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String T_FY_SLSJ = "t_fy_slsj";
-	/**
-	* B_FY_SFSL 
-	*/
-	@Column(columnName="b_fy_sfsl",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String B_FY_SFSL = "b_fy_sfsl";
-	/**
-	* V_FY_AJBS 
-	*/
-	@Column(columnName="v_fy_ajbs",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_AJBS = "v_fy_ajbs";
-	/**
-	* V_FY_AH 
-	*/
-	@Column(columnName="v_fy_ah",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_AH = "v_fy_ah";
-	/**
-	* C_FY_AJLB 
-	*/
-	@Column(columnName="c_fy_ajlb",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_AJLB = "c_fy_ajlb";
-	/**
-	* C_FY_SATJ 
-	*/
-	@Column(columnName="c_fy_satj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_SATJ = "c_fy_satj";
-	/**
-	* C_FY_SSXZ 
-	*/
-	@Column(columnName="c_fy_ssxz",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_SSXZ = "c_fy_ssxz";
-	/**
-	* C_FY_AJLY 
-	*/
-	@Column(columnName="c_fy_ajly",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_AJLY = "c_fy_ajly";
-	/**
-	* D_FY_SDSZRQ 
-	*/
-	@Column(columnName="d_fy_sdszrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_SDSZRQ = "d_fy_sdszrq";
-	/**
-	* C_FY_QSZZM 
-	*/
-	@Column(columnName="c_fy_qszzm",dataType="CHAR",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_QSZZM = "c_fy_qszzm";
-	/**
-	* V_FY_SAJZCL 
-	*/
-	@Column(columnName="v_fy_sajzcl",dataType="VARCHAR2",dataLength=200,nullAble="Y",comment="")
-	private String V_FY_SAJZCL = "v_fy_sajzcl";
-	/**
-	* V_FY_DJRXM 
-	*/
-	@Column(columnName="v_fy_djrxm",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_DJRXM = "v_fy_djrxm";
-	/**
-	* V_FY_SCRXM 
-	*/
-	@Column(columnName="v_fy_scrxm",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_SCRXM = "v_fy_scrxm";
-	/**
-	* D_FY_SCRQ 
-	*/
-	@Column(columnName="d_fy_scrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_SCRQ = "d_fy_scrq";
-	/**
-	* C_FY_SCYJ 
-	*/
-	@Column(columnName="c_fy_scyj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_SCYJ = "c_fy_scyj";
-	/**
-	* V_FY_SPRXM 
-	*/
-	@Column(columnName="v_fy_sprxm",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_SPRXM = "v_fy_sprxm";
-	/**
-	* D_FY_LASPRQ 
-	*/
-	@Column(columnName="d_fy_lasprq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_LASPRQ = "d_fy_lasprq";
-	/**
-	* C_FY_SPYJ 
-	*/
-	@Column(columnName="c_fy_spyj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_SPYJ = "c_fy_spyj";
-	/**
-	* D_FY_LARQ 
-	*/
-	@Column(columnName="d_fy_larq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_LARQ = "d_fy_larq";
-	/**
-	* V_FY_LABMMC 
-	*/
-	@Column(columnName="v_fy_labmmc",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_LABMMC = "v_fy_labmmc";
-	/**
-	* V_FY_CBBMMC 
-	*/
-	@Column(columnName="v_fy_cbbmmc",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_CBBMMC = "v_fy_cbbmmc";
-	/**
-	* V_FY_CBRXM 
-	*/
-	@Column(columnName="v_fy_cbrxm",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_CBRXM = "v_fy_cbrxm";
-	/**
-	* C_FY_SYCX 
-	*/
-	@Column(columnName="c_fy_sycx",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_SYCX = "c_fy_sycx";
-	/**
-	* B_BGRSFTYRZCX 
-	*/
-	@Column(columnName="b_bgrsftyrzcx",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String B_BGRSFTYRZCX = "b_bgrsftyrzcx";
-	/**
-	* C_FY_GXYJ 
-	*/
-	@Column(columnName="c_fy_gxyj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_GXYJ = "c_fy_gxyj";
-	/**
-	* V_TQZJJH 
-	*/
-	@Column(columnName="v_tqzjjh",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String V_TQZJJH = "v_tqzjjh";
-	/**
-	* V_FYSJDQZJ 
-	*/
-	@Column(columnName="v_fysjdqzj",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String V_FYSJDQZJ = "v_fysjdqzj";
-	/**
-	* C_FY_DYSJ 
-	*/
-	@Column(columnName="c_fy_dysj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_DYSJ = "c_fy_dysj";
-	/**
-	* C_FY_AJSJ 
-	*/
-	@Column(columnName="c_fy_ajsj",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_AJSJ = "c_fy_ajsj";
-	/**
-	* V_AJDXYY 
-	*/
-	@Column(columnName="v_ajdxyy",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String V_AJDXYY = "v_ajdxyy";
-	/**
-	* B_FY_SFGTFZ 
-	*/
-	@Column(columnName="b_fy_sfgtfz",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String B_FY_SFGTFZ = "b_fy_sfgtfz";
-	/**
-	* C_FY_TABGRBZAYY 
-	*/
-	@Column(columnName="c_fy_tabgrbzayy",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_TABGRBZAYY = "c_fy_tabgrbzayy";
-	/**
-	* V_AJJZ 
-	*/
-	@Column(columnName="v_ajjz",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_AJJZ = "v_ajjz";
-	/**
-	* D_FY_SXQSRQ 
-	*/
-	@Column(columnName="d_fy_sxqsrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_SXQSRQ = "d_fy_sxqsrq";
-	/**
-	* D_FY_SXJMRQ 
-	*/
-	@Column(columnName="d_fy_sxjmrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_SXJMRQ = "d_fy_sxjmrq";
-	/**
-	* D_FY_LAQXJMRQ 
-	*/
-	@Column(columnName="d_fy_laqxjmrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_LAQXJMRQ = "d_fy_laqxjmrq";
-	/**
-	* D_FY_SLJSRQ 
-	*/
-	@Column(columnName="d_fy_sljsrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_FY_SLJSRQ = "d_fy_sljsrq";
-	/**
-	* N_FY_FDLASX 
-	*/
-	@Column(columnName="n_fy_fdlasx",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_FDLASX = "n_fy_fdlasx";
-	/**
-	* N_FY_SJLATS 
-	*/
-	@Column(columnName="n_fy_sjlats",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_SJLATS = "n_fy_sjlats";
-	/**
-	* N_FY_LACQTS 
-	*/
-	@Column(columnName="n_fy_lacqts",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_LACQTS = "n_fy_lacqts";
-	/**
-	* N_FY_FDSXTS 
-	*/
-	@Column(columnName="n_fy_fdsxts",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_FDSXTS = "n_fy_fdsxts";
-	/**
-	* N_FY_SJSLTS 
-	*/
-	@Column(columnName="n_fy_sjslts",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_SJSLTS = "n_fy_sjslts";
-	/**
-	* N_FY_CSXTS 
-	*/
-	@Column(columnName="n_fy_csxts",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_CSXTS = "n_fy_csxts";
-	/**
-	* N_FY_CSXBS 
-	*/
-	@Column(columnName="n_fy_csxbs",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_FY_CSXBS = "n_fy_csxbs";
-	/**
-	* V_FY_CSXYY 
-	*/
-	@Column(columnName="v_fy_csxyy",dataType="VARCHAR2",dataLength=200,nullAble="Y",comment="")
-	private String V_FY_CSXYY = "v_fy_csxyy";
-	/**
-	* C_JAAY 
-	*/
-	@Column(columnName="c_jaay",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_JAAY = "c_jaay";
-	/**
-	* C_FY_JAFS 
-	*/
-	@Column(columnName="c_fy_jafs",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_FY_JAFS = "c_fy_jafs";
-	/**
-	* C_BYSLYY 
-	*/
-	@Column(columnName="c_byslyy",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_BYSLYY = "c_byslyy";
-	/**
-	* C_BHZSYY 
-	*/
-	@Column(columnName="c_bhzsyy",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_BHZSYY = "c_bhzsyy";
-	/**
-	* C_CSLX 
-	*/
-	@Column(columnName="c_cslx",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_CSLX = "c_cslx";
-	/**
-	* V_CSCLSY 
-	*/
-	@Column(columnName="v_csclsy",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String V_CSCLSY = "v_csclsy";
-	/**
-	* V_JASY 
-	*/
-	@Column(columnName="v_jasy",dataType="VARCHAR2",dataLength=500,nullAble="Y",comment="")
-	private String V_JASY = "v_jasy";
-	/**
-	* D_SXRQ 
-	*/
-	@Column(columnName="d_sxrq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_SXRQ = "d_sxrq";
-	/**
-	* N_PJWHSYJE 
-	*/
-	@Column(columnName="n_pjwhsyje",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_PJWHSYJE = "n_pjwhsyje";
-	/**
-	* D_JARQ 
-	*/
-	@Column(columnName="d_jarq",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String D_JARQ = "d_jarq";
-	/**
-	* TRANSTYPE 
-	*/
-	@Column(columnName="transtype",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="transtype",dataType="varchar",dataLength=50,nullAble="Y",comment="交易类型")
 	private String TRANSTYPE = "transtype";
 	/**
-	* V_PTBH 
+	* PK_KS_H 主键
 	*/
-	@Column(columnName="v_ptbh",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="pk_ks_h",dataType="char",dataLength=20,nullAble="N",comment="主键")
+	private String PK_KS_H = "pk_ks_h";
+	/**
+	* V_PTBH 平台案件编号
+	*/
+	@Column(columnName="v_ptbh",dataType="varchar",dataLength=50,nullAble="Y",comment="平台案件编号")
 	private String V_PTBH = "v_ptbh";
 	/**
-	* C_XTFQDW 
+	* V_PTAJLX 平台案件类型
 	*/
-	@Column(columnName="c_xtfqdw",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="v_ptajlx",dataType="varchar",dataLength=50,nullAble="Y",comment="平台案件类型")
+	private String V_PTAJLX = "v_ptajlx";
+	/**
+	* V_PTAJZJ 平台单间主键
+	*/
+	@Column(columnName="v_ptajzj",dataType="char",dataLength=20,nullAble="Y",comment="平台单间主键")
+	private String V_PTAJZJ = "v_ptajzj";
+	/**
+	* C_XTFQDW 协同发起单位
+	*/
+	@Column(columnName="c_xtfqdw",dataType="varchar",dataLength=20,nullAble="Y",comment="协同发起单位")
 	private String C_XTFQDW = "c_xtfqdw";
 	/**
-	* C_XTFQR 
+	* C_XTFQR 协同发起人
 	*/
-	@Column(columnName="c_xtfqr",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="c_xtfqr",dataType="varchar",dataLength=20,nullAble="Y",comment="协同发起人")
 	private String C_XTFQR = "c_xtfqr";
 	/**
-	* T_XTFQSJ 
+	* T_XTFQSJ 协同发起时间
 	*/
-	@Column(columnName="t_xtfqsj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="t_xtfqsj",dataType="char",dataLength=19,nullAble="Y",comment="协同发起时间")
 	private String T_XTFQSJ = "t_xtfqsj";
 	/**
-	* C_XTJSDW 
+	* C_XTJSDW 协同接受单位
 	*/
-	@Column(columnName="c_xtjsdw",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="c_xtjsdw",dataType="varchar",dataLength=20,nullAble="Y",comment="协同接受单位")
 	private String C_XTJSDW = "c_xtjsdw";
 	/**
-	* C_XTJSR 
+	* C_XTJSR 协同接受人
 	*/
-	@Column(columnName="c_xtjsr",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="c_xtjsr",dataType="varchar",dataLength=20,nullAble="Y",comment="协同接受人")
 	private String C_XTJSR = "c_xtjsr";
 	/**
-	* T_XTJSSJ 
+	* T_XTJSSJ 协同接受时间
 	*/
-	@Column(columnName="t_xtjssj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="t_xtjssj",dataType="char",dataLength=19,nullAble="Y",comment="协同接受时间")
 	private String T_XTJSSJ = "t_xtjssj";
 	/**
-	* T_XTWCSJ 
+	* T_XTWCSJ 协同完成时间
 	*/
-	@Column(columnName="t_xtwcsj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="t_xtwcsj",dataType="char",dataLength=19,nullAble="Y",comment="协同完成时间")
 	private String T_XTWCSJ = "t_xtwcsj";
 	/**
-	* C_XTZT 
+	* C_XTZT 协同状态
 	*/
-	@Column(columnName="c_xtzt",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="c_xtzt",dataType="varchar",dataLength=20,nullAble="Y",comment="协同状态")
 	private String C_XTZT = "c_xtzt";
 	/**
-	* V_JCY_AJBS 
+	* V_JCY_QSSH 检察院的文书文号
 	*/
-	@Column(columnName="v_jcy_ajbs",dataType="VARCHAR2",dataLength=200,nullAble="Y",comment="")
+	@Column(columnName="v_jcy_qssh",dataType="varchar",dataLength=100,nullAble="Y",comment="检察院的文书文号")
+	private String V_JCY_QSSH = "v_jcy_qssh";
+	/**
+	* V_JCY_AJBS 检察院的案件的唯一标识
+	*/
+	@Column(columnName="v_jcy_ajbs",dataType="varchar",dataLength=200,nullAble="Y",comment="检察院的案件的唯一标识")
 	private String V_JCY_AJBS = "v_jcy_ajbs";
 	/**
-	* C_JCY_YSDW 
+	* C_JCY_YSDW 移送单位
 	*/
-	@Column(columnName="c_jcy_ysdw",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
+	@Column(columnName="c_jcy_ysdw",dataType="varchar",dataLength=20,nullAble="Y",comment="移送单位")
 	private String C_JCY_YSDW = "c_jcy_ysdw";
 	/**
-	* V_JCY_YSDWMC 
+	* C_JCY_YSDWMC 移送单位名称
 	*/
-	@Column(columnName="v_jcy_ysdwmc",dataType="VARCHAR2",dataLength=100,nullAble="Y",comment="")
-	private String V_JCY_YSDWMC = "v_jcy_ysdwmc";
+	@Column(columnName="c_jcy_ysdwmc",dataType="varchar",dataLength=50,nullAble="Y",comment="移送单位名称")
+	private String C_JCY_YSDWMC = "c_jcy_ysdwmc";
 	/**
-	* T_JCY_YSSJ 
+	* T_JCY_YSSJ 移送时间
 	*/
-	@Column(columnName="t_jcy_yssj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
+	@Column(columnName="t_jcy_yssj",dataType="char",dataLength=19,nullAble="Y",comment="移送时间")
 	private String T_JCY_YSSJ = "t_jcy_yssj";
 	/**
-	* V_JCY_ZAY 
+	* V_JCY_ZAY 主案由
 	*/
-	@Column(columnName="v_jcy_zay",dataType="VARCHAR2",dataLength=500,nullAble="Y",comment="")
+	@Column(columnName="v_jcy_zay",dataType="varchar",dataLength=200,nullAble="Y",comment="主案由")
 	private String V_JCY_ZAY = "v_jcy_zay";
 	/**
-	* V_GAJ_GLBH 
+	* V_JCY_AJMC 案件名称
 	*/
-	@Column(columnName="v_gaj_glbh",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
+	@Column(columnName="v_jcy_ajmc",dataType="varchar",dataLength=200,nullAble="Y",comment="案件名称")
+	private String V_JCY_AJMC = "v_jcy_ajmc";
+	/**
+	* V_JCY_CBR 检察院承办人
+	*/
+	@Column(columnName="v_jcy_cbr",dataType="varchar",dataLength=50,nullAble="Y",comment="检察院承办人")
+	private String V_JCY_CBR = "v_jcy_cbr";
+	/**
+	* V_GAJ_ZHJG 抓获经过
+	*/
+	@Column(columnName="v_gaj_zhjg",dataType="varchar",dataLength=2000,nullAble="Y",comment="抓获经过")
+	private String V_GAJ_ZHJG = "v_gaj_zhjg";
+	/**
+	* V_GAJ_ZJBF 证据部分
+	*/
+	@Column(columnName="v_gaj_zjbf",dataType="varchar",dataLength=2000,nullAble="Y",comment="证据部分")
+	private String V_GAJ_ZJBF = "v_gaj_zjbf";
+	/**
+	* V_GAJ_GLBH 关联编号
+	*/
+	@Column(columnName="v_gaj_glbh",dataType="varchar",dataLength=50,nullAble="Y",comment="关联编号")
 	private String V_GAJ_GLBH = "v_gaj_glbh";
 	/**
-	* V_BCZCTG 
+	* V_GAJ_AJBH 公安案件编号
 	*/
-	@Column(columnName="v_bczctg",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_BCZCTG = "v_bczctg";
+	@Column(columnName="v_gaj_ajbh",dataType="varchar",dataLength=50,nullAble="Y",comment="公安案件编号")
+	private String V_GAJ_AJBH = "v_gaj_ajbh";
 	/**
-	* C_BCZCDW 
+	* T_FY_SLSJ 法院的受理时间
 	*/
-	@Column(columnName="c_bczcdw",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_BCZCDW = "c_bczcdw";
+	@Column(columnName="t_fy_slsj",dataType="varchar",dataLength=50,nullAble="Y",comment="法院的受理时间")
+	private String T_FY_SLSJ = "t_fy_slsj";
 	/**
-	* N_BCZCCS 
+	* B_FY_SFSL 是否受理
 	*/
-	@Column(columnName="n_bczccs",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String N_BCZCCS = "n_bczccs";
+	@Column(columnName="b_fy_sfsl",dataType="char",dataLength=1,nullAble="Y",comment="是否受理")
+	private String B_FY_SFSL = "b_fy_sfsl";
 	/**
-	* V_BCZCFKXX 
+	* V_FY_AJBS 法院案件标识
 	*/
-	@Column(columnName="v_bczcfkxx",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_BCZCFKXX = "v_bczcfkxx";
+	@Column(columnName="v_fy_ajbs",dataType="varchar",dataLength=50,nullAble="Y",comment="法院案件标识")
+	private String V_FY_AJBS = "v_fy_ajbs";
 	/**
-	* T_BCZCWCSJ 
+	* V_FY_AH 法院案号
 	*/
-	@Column(columnName="t_bczcwcsj",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String T_BCZCWCSJ = "t_bczcwcsj";
+	@Column(columnName="v_fy_ah",dataType="varchar",dataLength=50,nullAble="Y",comment="法院案号")
+	private String V_FY_AH = "v_fy_ah";
 	/**
-	* C_JCY_ZAYID 
+	* C_FY_AJLB 案件类别
 	*/
-	@Column(columnName="c_jcy_zayid",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_JCY_ZAYID = "c_jcy_zayid";
+	@Column(columnName="c_fy_ajlb",dataType="varchar",dataLength=20,nullAble="Y",comment="案件类别")
+	private String C_FY_AJLB = "c_fy_ajlb";
 	/**
-	* V_FY_QSZZMID 
+	* C_FY_SATJ 收案途径
 	*/
-	@Column(columnName="v_fy_qszzmid",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_FY_QSZZMID = "v_fy_qszzmid";
+	@Column(columnName="c_fy_satj",dataType="varchar",dataLength=20,nullAble="Y",comment="收案途径")
+	private String C_FY_SATJ = "c_fy_satj";
 	/**
-	* B_SFTHBCZC 
+	* C_FY_SSXZ 诉讼性质
 	*/
-	@Column(columnName="b_sfthbczc",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String B_SFTHBCZC = "b_sfthbczc";
+	@Column(columnName="c_fy_ssxz",dataType="varchar",dataLength=20,nullAble="Y",comment="诉讼性质")
+	private String C_FY_SSXZ = "c_fy_ssxz";
 	/**
-	* B_SFTHBCZC2 
+	* C_FY_AJLY 案件来源
 	*/
-	@Column(columnName="b_sfthbczc2",dataType="CHAR",dataLength=1,nullAble="Y",comment="")
-	private String B_SFTHBCZC2 = "b_sfthbczc2";
+	@Column(columnName="c_fy_ajly",dataType="varchar",dataLength=20,nullAble="Y",comment="案件来源")
+	private String C_FY_AJLY = "c_fy_ajly";
 	/**
-	* V_BCZCTG2 
+	* D_FY_SDSZRQ 收到诉状日期
 	*/
-	@Column(columnName="v_bczctg2",dataType="VARCHAR2",dataLength=2000,nullAble="Y",comment="")
-	private String V_BCZCTG2 = "v_bczctg2";
+	@Column(columnName="d_fy_sdszrq",dataType="char",dataLength=19,nullAble="Y",comment="收到诉状日期")
+	private String D_FY_SDSZRQ = "d_fy_sdszrq";
 	/**
-	* C_BCZCDW2 
+	* C_FY_QSZZM 起诉主罪名
 	*/
-	@Column(columnName="c_bczcdw2",dataType="VARCHAR2",dataLength=20,nullAble="Y",comment="")
-	private String C_BCZCDW2 = "c_bczcdw2";
+	@Column(columnName="c_fy_qszzm",dataType="varchar",dataLength=20,nullAble="Y",comment="起诉主罪名")
+	private String C_FY_QSZZM = "c_fy_qszzm";
 	/**
-	* V_BCZCFKXX2 
+	* V_FY_SAJZCL 随案卷宗材料
 	*/
-	@Column(columnName="v_bczcfkxx2",dataType="VARCHAR2",dataLength=200,nullAble="Y",comment="")
-	private String V_BCZCFKXX2 = "v_bczcfkxx2";
+	@Column(columnName="v_fy_sajzcl",dataType="varchar",dataLength=2000,nullAble="Y",comment="随案卷宗材料")
+	private String V_FY_SAJZCL = "v_fy_sajzcl";
 	/**
-	* T_BCZCWCSJ2 
+	* V_FY_DJRXM 登记人姓名
 	*/
-	@Column(columnName="t_bczcwcsj2",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String T_BCZCWCSJ2 = "t_bczcwcsj2";
+	@Column(columnName="v_fy_djrxm",dataType="varchar",dataLength=20,nullAble="Y",comment="登记人姓名")
+	private String V_FY_DJRXM = "v_fy_djrxm";
 	/**
-	* V_JAAYMC 
+	* V_FY_SCRXM 审查人姓名
 	*/
-	@Column(columnName="v_jaaymc",dataType="VARCHAR2",dataLength=50,nullAble="Y",comment="")
-	private String V_JAAYMC = "v_jaaymc";
+	@Column(columnName="v_fy_scrxm",dataType="varchar",dataLength=50,nullAble="Y",comment="审查人姓名")
+	private String V_FY_SCRXM = "v_fy_scrxm";
 	/**
-	* TS 
+	* D_FY_SCRQ 审查日期
 	*/
-	@Column(columnName="ts",dataType="CHAR",dataLength=19,nullAble="Y",comment="")
-	private String TS = "ts";
+	@Column(columnName="d_fy_scrq",dataType="char",dataLength=19,nullAble="Y",comment="审查日期")
+	private String D_FY_SCRQ = "d_fy_scrq";
 	/**
-	* DR 
+	* C_FY_SCYJ 审查意见
 	*/
-	@Column(columnName="dr",dataType="NUMBER",dataLength=22,nullAble="Y",comment="")
-	private String DR = "dr";
+	@Column(columnName="c_fy_scyj",dataType="varchar",dataLength=2000,nullAble="Y",comment="审查意见")
+	private String C_FY_SCYJ = "c_fy_scyj";
+	/**
+	* V_FY_SPRXM 审批人姓名
+	*/
+	@Column(columnName="v_fy_sprxm",dataType="varchar",dataLength=50,nullAble="Y",comment="审批人姓名")
+	private String V_FY_SPRXM = "v_fy_sprxm";
+	/**
+	* D_FY_LASPRQ 立案审批日期
+	*/
+	@Column(columnName="d_fy_lasprq",dataType="char",dataLength=19,nullAble="Y",comment="立案审批日期")
+	private String D_FY_LASPRQ = "d_fy_lasprq";
+	/**
+	* C_FY_SPYJ 审批意见
+	*/
+	@Column(columnName="c_fy_spyj",dataType="varchar",dataLength=2000,nullAble="Y",comment="审批意见")
+	private String C_FY_SPYJ = "c_fy_spyj";
+	/**
+	* D_FY_LARQ 立案日期
+	*/
+	@Column(columnName="d_fy_larq",dataType="char",dataLength=19,nullAble="Y",comment="立案日期")
+	private String D_FY_LARQ = "d_fy_larq";
+	/**
+	* V_FY_LABMMC 立案部门名称
+	*/
+	@Column(columnName="v_fy_labmmc",dataType="varchar",dataLength=50,nullAble="Y",comment="立案部门名称")
+	private String V_FY_LABMMC = "v_fy_labmmc";
+	/**
+	* V_FY_CBBMMC 承办审批庭名称
+	*/
+	@Column(columnName="v_fy_cbbmmc",dataType="varchar",dataLength=50,nullAble="Y",comment="承办审批庭名称")
+	private String V_FY_CBBMMC = "v_fy_cbbmmc";
+	/**
+	* V_FY_CBRXM 承办人姓名
+	*/
+	@Column(columnName="v_fy_cbrxm",dataType="varchar",dataLength=50,nullAble="Y",comment="承办人姓名")
+	private String V_FY_CBRXM = "v_fy_cbrxm";
+	/**
+	* C_FY_SYCX 适用程序
+	*/
+	@Column(columnName="c_fy_sycx",dataType="varchar",dataLength=20,nullAble="Y",comment="适用程序")
+	private String C_FY_SYCX = "c_fy_sycx";
+	/**
+	* B_BGRSFTYRZCX 被告人是否同意认罪程序
+	*/
+	@Column(columnName="b_bgrsftyrzcx",dataType="char",dataLength=1,nullAble="Y",comment="被告人是否同意认罪程序")
+	private String B_BGRSFTYRZCX = "b_bgrsftyrzcx";
+	/**
+	* C_FY_GXYJ 管辖依据
+	*/
+	@Column(columnName="c_fy_gxyj",dataType="varchar",dataLength=2000,nullAble="Y",comment="管辖依据")
+	private String C_FY_GXYJ = "c_fy_gxyj";
+	/**
+	* V_TQZJJH 庭前证据交换
+	*/
+	@Column(columnName="v_tqzjjh",dataType="varchar",dataLength=2000,nullAble="Y",comment="庭前证据交换")
+	private String V_TQZJJH = "v_tqzjjh";
+	/**
+	* V_FYSJDQZJ 法院收集调取证据
+	*/
+	@Column(columnName="v_fysjdqzj",dataType="varchar",dataLength=2000,nullAble="Y",comment="法院收集调取证据")
+	private String V_FYSJDQZJ = "v_fysjdqzj";
+	/**
+	* C_FY_DYSJ 地域涉及
+	*/
+	@Column(columnName="c_fy_dysj",dataType="varchar",dataLength=20,nullAble="Y",comment="地域涉及")
+	private String C_FY_DYSJ = "c_fy_dysj";
+	/**
+	* C_FY_AJSJ 案件涉及
+	*/
+	@Column(columnName="c_fy_ajsj",dataType="varchar",dataLength=20,nullAble="Y",comment="案件涉及")
+	private String C_FY_AJSJ = "c_fy_ajsj";
+	/**
+	* V_AJDXYY 案件大小影响
+	*/
+	@Column(columnName="v_ajdxyy",dataType="varchar",dataLength=2000,nullAble="Y",comment="案件大小影响")
+	private String V_AJDXYY = "v_ajdxyy";
+	/**
+	* B_FY_SFGTFZ 是否共同犯罪
+	*/
+	@Column(columnName="b_fy_sfgtfz",dataType="char",dataLength=1,nullAble="Y",comment="是否共同犯罪")
+	private String B_FY_SFGTFZ = "b_fy_sfgtfz";
+	/**
+	* C_FY_TABGRBZAYY 同案被告人不在案原因
+	*/
+	@Column(columnName="c_fy_tabgrbzayy",dataType="varchar",dataLength=2000,nullAble="Y",comment="同案被告人不在案原因")
+	private String C_FY_TABGRBZAYY = "c_fy_tabgrbzayy";
+	/**
+	* V_AJJZ 案件价值
+	*/
+	@Column(columnName="v_ajjz",dataType="varchar",dataLength=2000,nullAble="Y",comment="案件价值")
+	private String V_AJJZ = "v_ajjz";
+	/**
+	* D_FY_SXQSRQ 审限起始日期
+	*/
+	@Column(columnName="d_fy_sxqsrq",dataType="char",dataLength=19,nullAble="Y",comment="审限起始日期")
+	private String D_FY_SXQSRQ = "d_fy_sxqsrq";
+	/**
+	* D_FY_SXJMRQ 审限届满日期
+	*/
+	@Column(columnName="d_fy_sxjmrq",dataType="char",dataLength=19,nullAble="Y",comment="审限届满日期")
+	private String D_FY_SXJMRQ = "d_fy_sxjmrq";
+	/**
+	* D_FY_LAQXJMRQ 立案期限届满日期
+	*/
+	@Column(columnName="d_fy_laqxjmrq",dataType="char",dataLength=19,nullAble="Y",comment="立案期限届满日期")
+	private String D_FY_LAQXJMRQ = "d_fy_laqxjmrq";
+	/**
+	* D_FY_SLJSRQ 审理结束日期
+	*/
+	@Column(columnName="d_fy_sljsrq",dataType="char",dataLength=19,nullAble="Y",comment="审理结束日期")
+	private String D_FY_SLJSRQ = "d_fy_sljsrq";
+	/**
+	* N_FY_FDLASX 法定立案期限
+	*/
+	@Column(columnName="n_fy_fdlasx",dataType="int",dataLength=0,nullAble="Y",comment="法定立案期限")
+	private String N_FY_FDLASX = "n_fy_fdlasx";
+	/**
+	* N_FY_SJLATS 实际立案天数
+	*/
+	@Column(columnName="n_fy_sjlats",dataType="int",dataLength=0,nullAble="Y",comment="实际立案天数")
+	private String N_FY_SJLATS = "n_fy_sjlats";
+	/**
+	* N_FY_LACQTS 立案超期天数
+	*/
+	@Column(columnName="n_fy_lacqts",dataType="int",dataLength=0,nullAble="Y",comment="立案超期天数")
+	private String N_FY_LACQTS = "n_fy_lacqts";
+	/**
+	* N_FY_FDSXTS 法定审限天数
+	*/
+	@Column(columnName="n_fy_fdsxts",dataType="int",dataLength=0,nullAble="Y",comment="法定审限天数")
+	private String N_FY_FDSXTS = "n_fy_fdsxts";
+	/**
+	* N_FY_SJSLTS 实际审理天数
+	*/
+	@Column(columnName="n_fy_sjslts",dataType="int",dataLength=0,nullAble="Y",comment="实际审理天数")
+	private String N_FY_SJSLTS = "n_fy_sjslts";
+	/**
+	* N_FY_CSXTS 超审限天数
+	*/
+	@Column(columnName="n_fy_csxts",dataType="int",dataLength=0,nullAble="Y",comment="超审限天数")
+	private String N_FY_CSXTS = "n_fy_csxts";
+	/**
+	* N_FY_CSXBS 超审限倍数
+	*/
+	@Column(columnName="n_fy_csxbs",dataType="int",dataLength=0,nullAble="Y",comment="超审限倍数")
+	private String N_FY_CSXBS = "n_fy_csxbs";
+	/**
+	* V_FY_CXXYY 超审限原因
+	*/
+	@Column(columnName="v_fy_cxxyy",dataType="varchar",dataLength=2000,nullAble="Y",comment="超审限原因")
+	private String V_FY_CXXYY = "v_fy_cxxyy";
+	/**
+	* C_JAAY 结案案由
+	*/
+	@Column(columnName="c_jaay",dataType="varchar",dataLength=20,nullAble="Y",comment="结案案由")
+	private String C_JAAY = "c_jaay";
+	/**
+	* C_FY_JAFS 结案方式
+	*/
+	@Column(columnName="c_fy_jafs",dataType="varchar",dataLength=20,nullAble="Y",comment="结案方式")
+	private String C_FY_JAFS = "c_fy_jafs";
+	/**
+	* C_BYSLYY 不予受理原因
+	*/
+	@Column(columnName="c_byslyy",dataType="varchar",dataLength=2000,nullAble="Y",comment="不予受理原因")
+	private String C_BYSLYY = "c_byslyy";
+	/**
+	* C_BHZSYY 驳回自诉原因
+	*/
+	@Column(columnName="c_bhzsyy",dataType="varchar",dataLength=2000,nullAble="Y",comment="驳回自诉原因")
+	private String C_BHZSYY = "c_bhzsyy";
+	/**
+	* C_CSLX 撤诉类型
+	*/
+	@Column(columnName="c_cslx",dataType="varchar",dataLength=20,nullAble="Y",comment="撤诉类型")
+	private String C_CSLX = "c_cslx";
+	/**
+	* V_CSCLSY 撤诉处理事由
+	*/
+	@Column(columnName="v_csclsy",dataType="varchar",dataLength=2000,nullAble="Y",comment="撤诉处理事由")
+	private String V_CSCLSY = "v_csclsy";
+	/**
+	* V_JASY 结案事由
+	*/
+	@Column(columnName="v_jasy",dataType="varchar",dataLength=2000,nullAble="Y",comment="结案事由")
+	private String V_JASY = "v_jasy";
+	/**
+	* D_SXRQ 生效日期
+	*/
+	@Column(columnName="d_sxrq",dataType="char",dataLength=19,nullAble="Y",comment="生效日期")
+	private String D_SXRQ = "d_sxrq";
+	/**
+	* N_PJWHSYJE 判决挽回损失金额
+	*/
+	@Column(columnName="n_pjwhsyje",dataType="decimal",dataLength=20,nullAble="Y",comment="判决挽回损失金额")
+	private String N_PJWHSYJE = "n_pjwhsyje";
+	/**
+	* D_JARQ 结案日期
+	*/
+	@Column(columnName="d_jarq",dataType="char",dataLength=19,nullAble="Y",comment="结案日期")
+	private String D_JARQ = "d_jarq";
+	/**
+	* V_SXCPSWH 生效裁判书文号
+	*/
+	@Column(columnName="v_sxcpswh",dataType="varchar",dataLength=50,nullAble="Y",comment="生效裁判书文号")
+	private String V_SXCPSWH = "v_sxcpswh";
+	/**
+	* C_ZCSXCPFY 作出生效裁判法院
+	*/
+	@Column(columnName="c_zcsxcpfy",dataType="varchar",dataLength=20,nullAble="Y",comment="作出生效裁判法院")
+	private String C_ZCSXCPFY = "c_zcsxcpfy";
+	/**
+	* C_KSJG 抗诉机关
+	*/
+	@Column(columnName="c_ksjg",dataType="varchar",dataLength=20,nullAble="Y",comment="抗诉机关")
+	private String C_KSJG = "c_ksjg";
+	/**
+	* C_TQKSLY 提请抗诉理由
+	*/
+	@Column(columnName="c_tqksly",dataType="varchar",dataLength=2000,nullAble="Y",comment="提请抗诉理由")
+	private String C_TQKSLY = "c_tqksly";
+	/**
+	* D_TQKSRQ 提请抗诉日期
+	*/
+	@Column(columnName="d_tqksrq",dataType="char",dataLength=19,nullAble="Y",comment="提请抗诉日期")
+	private String D_TQKSRQ = "d_tqksrq";
+	/**
+	* C_KSLX 抗诉类型
+	*/
+	@Column(columnName="c_kslx",dataType="varchar",dataLength=20,nullAble="Y",comment="抗诉类型")
+	private String C_KSLX = "c_kslx";
 	/**
 	* getBillno(void) 
 	*/
@@ -851,16 +801,40 @@ public class CrpasgshVO {
 		this.BILLVERSIONPK=billversionpk;
 	}
 	/**
-	* getPk_gs_h(void) 
+	* getTranstype(void) 
 	*/
-	public String getPk_gs_h(){
-		return this.PK_GS_H;
+	public String getTranstype(){
+		return this.TRANSTYPE;
 	}
 	/**
-	*setPk_gs_h(java.lang.String)
+	*setTranstype(java.lang.String)
 	*/
-	public void setPk_gs_h(String pk_gs_h){
-		this.PK_GS_H=pk_gs_h;
+	public void setTranstype(String transtype){
+		this.TRANSTYPE=transtype;
+	}
+	/**
+	* getPk_ks_h(void) 
+	*/
+	public String getPk_ks_h(){
+		return this.PK_KS_H;
+	}
+	/**
+	*setPk_ks_h(java.lang.String)
+	*/
+	public void setPk_ks_h(String pk_ks_h){
+		this.PK_KS_H=pk_ks_h;
+	}
+	/**
+	* getV_ptbh(void) 
+	*/
+	public String getV_ptbh(){
+		return this.V_PTBH;
+	}
+	/**
+	*setV_ptbh(java.lang.String)
+	*/
+	public void setV_ptbh(String v_ptbh){
+		this.V_PTBH=v_ptbh;
 	}
 	/**
 	* getV_ptajlx(void) 
@@ -887,6 +861,102 @@ public class CrpasgshVO {
 		this.V_PTAJZJ=v_ptajzj;
 	}
 	/**
+	* getC_xtfqdw(void) 
+	*/
+	public String getC_xtfqdw(){
+		return this.C_XTFQDW;
+	}
+	/**
+	*setC_xtfqdw(java.lang.String)
+	*/
+	public void setC_xtfqdw(String c_xtfqdw){
+		this.C_XTFQDW=c_xtfqdw;
+	}
+	/**
+	* getC_xtfqr(void) 
+	*/
+	public String getC_xtfqr(){
+		return this.C_XTFQR;
+	}
+	/**
+	*setC_xtfqr(java.lang.String)
+	*/
+	public void setC_xtfqr(String c_xtfqr){
+		this.C_XTFQR=c_xtfqr;
+	}
+	/**
+	* getT_xtfqsj(void) 
+	*/
+	public String getT_xtfqsj(){
+		return this.T_XTFQSJ;
+	}
+	/**
+	*setT_xtfqsj(java.lang.String)
+	*/
+	public void setT_xtfqsj(String t_xtfqsj){
+		this.T_XTFQSJ=t_xtfqsj;
+	}
+	/**
+	* getC_xtjsdw(void) 
+	*/
+	public String getC_xtjsdw(){
+		return this.C_XTJSDW;
+	}
+	/**
+	*setC_xtjsdw(java.lang.String)
+	*/
+	public void setC_xtjsdw(String c_xtjsdw){
+		this.C_XTJSDW=c_xtjsdw;
+	}
+	/**
+	* getC_xtjsr(void) 
+	*/
+	public String getC_xtjsr(){
+		return this.C_XTJSR;
+	}
+	/**
+	*setC_xtjsr(java.lang.String)
+	*/
+	public void setC_xtjsr(String c_xtjsr){
+		this.C_XTJSR=c_xtjsr;
+	}
+	/**
+	* getT_xtjssj(void) 
+	*/
+	public String getT_xtjssj(){
+		return this.T_XTJSSJ;
+	}
+	/**
+	*setT_xtjssj(java.lang.String)
+	*/
+	public void setT_xtjssj(String t_xtjssj){
+		this.T_XTJSSJ=t_xtjssj;
+	}
+	/**
+	* getT_xtwcsj(void) 
+	*/
+	public String getT_xtwcsj(){
+		return this.T_XTWCSJ;
+	}
+	/**
+	*setT_xtwcsj(java.lang.String)
+	*/
+	public void setT_xtwcsj(String t_xtwcsj){
+		this.T_XTWCSJ=t_xtwcsj;
+	}
+	/**
+	* getC_xtzt(void) 
+	*/
+	public String getC_xtzt(){
+		return this.C_XTZT;
+	}
+	/**
+	*setC_xtzt(java.lang.String)
+	*/
+	public void setC_xtzt(String c_xtzt){
+		this.C_XTZT=c_xtzt;
+	}
+	/**
 	* getV_jcy_qssh(void) 
 	*/
 	public String getV_jcy_qssh(){
@@ -897,6 +967,66 @@ public class CrpasgshVO {
 	*/
 	public void setV_jcy_qssh(String v_jcy_qssh){
 		this.V_JCY_QSSH=v_jcy_qssh;
+	}
+	/**
+	* getV_jcy_ajbs(void) 
+	*/
+	public String getV_jcy_ajbs(){
+		return this.V_JCY_AJBS;
+	}
+	/**
+	*setV_jcy_ajbs(java.lang.String)
+	*/
+	public void setV_jcy_ajbs(String v_jcy_ajbs){
+		this.V_JCY_AJBS=v_jcy_ajbs;
+	}
+	/**
+	* getC_jcy_ysdw(void) 
+	*/
+	public String getC_jcy_ysdw(){
+		return this.C_JCY_YSDW;
+	}
+	/**
+	*setC_jcy_ysdw(java.lang.String)
+	*/
+	public void setC_jcy_ysdw(String c_jcy_ysdw){
+		this.C_JCY_YSDW=c_jcy_ysdw;
+	}
+	/**
+	* getC_jcy_ysdwmc(void) 
+	*/
+	public String getC_jcy_ysdwmc(){
+		return this.C_JCY_YSDWMC;
+	}
+	/**
+	*setC_jcy_ysdwmc(java.lang.String)
+	*/
+	public void setC_jcy_ysdwmc(String c_jcy_ysdwmc){
+		this.C_JCY_YSDWMC=c_jcy_ysdwmc;
+	}
+	/**
+	* getT_jcy_yssj(void) 
+	*/
+	public String getT_jcy_yssj(){
+		return this.T_JCY_YSSJ;
+	}
+	/**
+	*setT_jcy_yssj(java.lang.String)
+	*/
+	public void setT_jcy_yssj(String t_jcy_yssj){
+		this.T_JCY_YSSJ=t_jcy_yssj;
+	}
+	/**
+	* getV_jcy_zay(void) 
+	*/
+	public String getV_jcy_zay(){
+		return this.V_JCY_ZAY;
+	}
+	/**
+	*setV_jcy_zay(java.lang.String)
+	*/
+	public void setV_jcy_zay(String v_jcy_zay){
+		this.V_JCY_ZAY=v_jcy_zay;
 	}
 	/**
 	* getV_jcy_ajmc(void) 
@@ -945,6 +1075,18 @@ public class CrpasgshVO {
 	*/
 	public void setV_gaj_zjbf(String v_gaj_zjbf){
 		this.V_GAJ_ZJBF=v_gaj_zjbf;
+	}
+	/**
+	* getV_gaj_glbh(void) 
+	*/
+	public String getV_gaj_glbh(){
+		return this.V_GAJ_GLBH;
+	}
+	/**
+	*setV_gaj_glbh(java.lang.String)
+	*/
+	public void setV_gaj_glbh(String v_gaj_glbh){
+		this.V_GAJ_GLBH=v_gaj_glbh;
 	}
 	/**
 	* getV_gaj_ajbh(void) 
@@ -1487,16 +1629,16 @@ public class CrpasgshVO {
 		this.N_FY_CSXBS=n_fy_csxbs;
 	}
 	/**
-	* getV_fy_csxyy(void) 
+	* getV_fy_cxxyy(void) 
 	*/
-	public String getV_fy_csxyy(){
-		return this.V_FY_CSXYY;
+	public String getV_fy_cxxyy(){
+		return this.V_FY_CXXYY;
 	}
 	/**
-	*setV_fy_csxyy(java.lang.String)
+	*setV_fy_cxxyy(java.lang.String)
 	*/
-	public void setV_fy_csxyy(String v_fy_csxyy){
-		this.V_FY_CSXYY=v_fy_csxyy;
+	public void setV_fy_cxxyy(String v_fy_cxxyy){
+		this.V_FY_CXXYY=v_fy_cxxyy;
 	}
 	/**
 	* getC_jaay(void) 
@@ -1619,388 +1761,76 @@ public class CrpasgshVO {
 		this.D_JARQ=d_jarq;
 	}
 	/**
-	* getTranstype(void) 
+	* getV_sxcpswh(void) 
 	*/
-	public String getTranstype(){
-		return this.TRANSTYPE;
+	public String getV_sxcpswh(){
+		return this.V_SXCPSWH;
 	}
 	/**
-	*setTranstype(java.lang.String)
+	*setV_sxcpswh(java.lang.String)
 	*/
-	public void setTranstype(String transtype){
-		this.TRANSTYPE=transtype;
+	public void setV_sxcpswh(String v_sxcpswh){
+		this.V_SXCPSWH=v_sxcpswh;
 	}
 	/**
-	* getV_ptbh(void) 
+	* getC_zcsxcpfy(void) 
 	*/
-	public String getV_ptbh(){
-		return this.V_PTBH;
+	public String getC_zcsxcpfy(){
+		return this.C_ZCSXCPFY;
 	}
 	/**
-	*setV_ptbh(java.lang.String)
+	*setC_zcsxcpfy(java.lang.String)
 	*/
-	public void setV_ptbh(String v_ptbh){
-		this.V_PTBH=v_ptbh;
+	public void setC_zcsxcpfy(String c_zcsxcpfy){
+		this.C_ZCSXCPFY=c_zcsxcpfy;
 	}
 	/**
-	* getC_xtfqdw(void) 
+	* getC_ksjg(void) 
 	*/
-	public String getC_xtfqdw(){
-		return this.C_XTFQDW;
+	public String getC_ksjg(){
+		return this.C_KSJG;
 	}
 	/**
-	*setC_xtfqdw(java.lang.String)
+	*setC_ksjg(java.lang.String)
 	*/
-	public void setC_xtfqdw(String c_xtfqdw){
-		this.C_XTFQDW=c_xtfqdw;
+	public void setC_ksjg(String c_ksjg){
+		this.C_KSJG=c_ksjg;
 	}
 	/**
-	* getC_xtfqr(void) 
+	* getC_tqksly(void) 
 	*/
-	public String getC_xtfqr(){
-		return this.C_XTFQR;
+	public String getC_tqksly(){
+		return this.C_TQKSLY;
 	}
 	/**
-	*setC_xtfqr(java.lang.String)
+	*setC_tqksly(java.lang.String)
 	*/
-	public void setC_xtfqr(String c_xtfqr){
-		this.C_XTFQR=c_xtfqr;
+	public void setC_tqksly(String c_tqksly){
+		this.C_TQKSLY=c_tqksly;
 	}
 	/**
-	* getT_xtfqsj(void) 
+	* getD_tqksrq(void) 
 	*/
-	public String getT_xtfqsj(){
-		return this.T_XTFQSJ;
+	public String getD_tqksrq(){
+		return this.D_TQKSRQ;
 	}
 	/**
-	*setT_xtfqsj(java.lang.String)
+	*setD_tqksrq(java.lang.String)
 	*/
-	public void setT_xtfqsj(String t_xtfqsj){
-		this.T_XTFQSJ=t_xtfqsj;
+	public void setD_tqksrq(String d_tqksrq){
+		this.D_TQKSRQ=d_tqksrq;
 	}
 	/**
-	* getC_xtjsdw(void) 
+	* getC_kslx(void) 
 	*/
-	public String getC_xtjsdw(){
-		return this.C_XTJSDW;
+	public String getC_kslx(){
+		return this.C_KSLX;
 	}
 	/**
-	*setC_xtjsdw(java.lang.String)
+	*setC_kslx(java.lang.String)
 	*/
-	public void setC_xtjsdw(String c_xtjsdw){
-		this.C_XTJSDW=c_xtjsdw;
-	}
-	/**
-	* getC_xtjsr(void) 
-	*/
-	public String getC_xtjsr(){
-		return this.C_XTJSR;
-	}
-	/**
-	*setC_xtjsr(java.lang.String)
-	*/
-	public void setC_xtjsr(String c_xtjsr){
-		this.C_XTJSR=c_xtjsr;
-	}
-	/**
-	* getT_xtjssj(void) 
-	*/
-	public String getT_xtjssj(){
-		return this.T_XTJSSJ;
-	}
-	/**
-	*setT_xtjssj(java.lang.String)
-	*/
-	public void setT_xtjssj(String t_xtjssj){
-		this.T_XTJSSJ=t_xtjssj;
-	}
-	/**
-	* getT_xtwcsj(void) 
-	*/
-	public String getT_xtwcsj(){
-		return this.T_XTWCSJ;
-	}
-	/**
-	*setT_xtwcsj(java.lang.String)
-	*/
-	public void setT_xtwcsj(String t_xtwcsj){
-		this.T_XTWCSJ=t_xtwcsj;
-	}
-	/**
-	* getC_xtzt(void) 
-	*/
-	public String getC_xtzt(){
-		return this.C_XTZT;
-	}
-	/**
-	*setC_xtzt(java.lang.String)
-	*/
-	public void setC_xtzt(String c_xtzt){
-		this.C_XTZT=c_xtzt;
-	}
-	/**
-	* getV_jcy_ajbs(void) 
-	*/
-	public String getV_jcy_ajbs(){
-		return this.V_JCY_AJBS;
-	}
-	/**
-	*setV_jcy_ajbs(java.lang.String)
-	*/
-	public void setV_jcy_ajbs(String v_jcy_ajbs){
-		this.V_JCY_AJBS=v_jcy_ajbs;
-	}
-	/**
-	* getC_jcy_ysdw(void) 
-	*/
-	public String getC_jcy_ysdw(){
-		return this.C_JCY_YSDW;
-	}
-	/**
-	*setC_jcy_ysdw(java.lang.String)
-	*/
-	public void setC_jcy_ysdw(String c_jcy_ysdw){
-		this.C_JCY_YSDW=c_jcy_ysdw;
-	}
-	/**
-	* getV_jcy_ysdwmc(void) 
-	*/
-	public String getV_jcy_ysdwmc(){
-		return this.V_JCY_YSDWMC;
-	}
-	/**
-	*setV_jcy_ysdwmc(java.lang.String)
-	*/
-	public void setV_jcy_ysdwmc(String v_jcy_ysdwmc){
-		this.V_JCY_YSDWMC=v_jcy_ysdwmc;
-	}
-	/**
-	* getT_jcy_yssj(void) 
-	*/
-	public String getT_jcy_yssj(){
-		return this.T_JCY_YSSJ;
-	}
-	/**
-	*setT_jcy_yssj(java.lang.String)
-	*/
-	public void setT_jcy_yssj(String t_jcy_yssj){
-		this.T_JCY_YSSJ=t_jcy_yssj;
-	}
-	/**
-	* getV_jcy_zay(void) 
-	*/
-	public String getV_jcy_zay(){
-		return this.V_JCY_ZAY;
-	}
-	/**
-	*setV_jcy_zay(java.lang.String)
-	*/
-	public void setV_jcy_zay(String v_jcy_zay){
-		this.V_JCY_ZAY=v_jcy_zay;
-	}
-	/**
-	* getV_gaj_glbh(void) 
-	*/
-	public String getV_gaj_glbh(){
-		return this.V_GAJ_GLBH;
-	}
-	/**
-	*setV_gaj_glbh(java.lang.String)
-	*/
-	public void setV_gaj_glbh(String v_gaj_glbh){
-		this.V_GAJ_GLBH=v_gaj_glbh;
-	}
-	/**
-	* getV_bczctg(void) 
-	*/
-	public String getV_bczctg(){
-		return this.V_BCZCTG;
-	}
-	/**
-	*setV_bczctg(java.lang.String)
-	*/
-	public void setV_bczctg(String v_bczctg){
-		this.V_BCZCTG=v_bczctg;
-	}
-	/**
-	* getC_bczcdw(void) 
-	*/
-	public String getC_bczcdw(){
-		return this.C_BCZCDW;
-	}
-	/**
-	*setC_bczcdw(java.lang.String)
-	*/
-	public void setC_bczcdw(String c_bczcdw){
-		this.C_BCZCDW=c_bczcdw;
-	}
-	/**
-	* getN_bczccs(void) 
-	*/
-	public String getN_bczccs(){
-		return this.N_BCZCCS;
-	}
-	/**
-	*setN_bczccs(java.lang.String)
-	*/
-	public void setN_bczccs(String n_bczccs){
-		this.N_BCZCCS=n_bczccs;
-	}
-	/**
-	* getV_bczcfkxx(void) 
-	*/
-	public String getV_bczcfkxx(){
-		return this.V_BCZCFKXX;
-	}
-	/**
-	*setV_bczcfkxx(java.lang.String)
-	*/
-	public void setV_bczcfkxx(String v_bczcfkxx){
-		this.V_BCZCFKXX=v_bczcfkxx;
-	}
-	/**
-	* getT_bczcwcsj(void) 
-	*/
-	public String getT_bczcwcsj(){
-		return this.T_BCZCWCSJ;
-	}
-	/**
-	*setT_bczcwcsj(java.lang.String)
-	*/
-	public void setT_bczcwcsj(String t_bczcwcsj){
-		this.T_BCZCWCSJ=t_bczcwcsj;
-	}
-	/**
-	* getC_jcy_zayid(void) 
-	*/
-	public String getC_jcy_zayid(){
-		return this.C_JCY_ZAYID;
-	}
-	/**
-	*setC_jcy_zayid(java.lang.String)
-	*/
-	public void setC_jcy_zayid(String c_jcy_zayid){
-		this.C_JCY_ZAYID=c_jcy_zayid;
-	}
-	/**
-	* getV_fy_qszzmid(void) 
-	*/
-	public String getV_fy_qszzmid(){
-		return this.V_FY_QSZZMID;
-	}
-	/**
-	*setV_fy_qszzmid(java.lang.String)
-	*/
-	public void setV_fy_qszzmid(String v_fy_qszzmid){
-		this.V_FY_QSZZMID=v_fy_qszzmid;
-	}
-	/**
-	* getB_sfthbczc(void) 
-	*/
-	public String getB_sfthbczc(){
-		return this.B_SFTHBCZC;
-	}
-	/**
-	*setB_sfthbczc(java.lang.String)
-	*/
-	public void setB_sfthbczc(String b_sfthbczc){
-		this.B_SFTHBCZC=b_sfthbczc;
-	}
-	/**
-	* getB_sfthbczc2(void) 
-	*/
-	public String getB_sfthbczc2(){
-		return this.B_SFTHBCZC2;
-	}
-	/**
-	*setB_sfthbczc2(java.lang.String)
-	*/
-	public void setB_sfthbczc2(String b_sfthbczc2){
-		this.B_SFTHBCZC2=b_sfthbczc2;
-	}
-	/**
-	* getV_bczctg2(void) 
-	*/
-	public String getV_bczctg2(){
-		return this.V_BCZCTG2;
-	}
-	/**
-	*setV_bczctg2(java.lang.String)
-	*/
-	public void setV_bczctg2(String v_bczctg2){
-		this.V_BCZCTG2=v_bczctg2;
-	}
-	/**
-	* getC_bczcdw2(void) 
-	*/
-	public String getC_bczcdw2(){
-		return this.C_BCZCDW2;
-	}
-	/**
-	*setC_bczcdw2(java.lang.String)
-	*/
-	public void setC_bczcdw2(String c_bczcdw2){
-		this.C_BCZCDW2=c_bczcdw2;
-	}
-	/**
-	* getV_bczcfkxx2(void) 
-	*/
-	public String getV_bczcfkxx2(){
-		return this.V_BCZCFKXX2;
-	}
-	/**
-	*setV_bczcfkxx2(java.lang.String)
-	*/
-	public void setV_bczcfkxx2(String v_bczcfkxx2){
-		this.V_BCZCFKXX2=v_bczcfkxx2;
-	}
-	/**
-	* getT_bczcwcsj2(void) 
-	*/
-	public String getT_bczcwcsj2(){
-		return this.T_BCZCWCSJ2;
-	}
-	/**
-	*setT_bczcwcsj2(java.lang.String)
-	*/
-	public void setT_bczcwcsj2(String t_bczcwcsj2){
-		this.T_BCZCWCSJ2=t_bczcwcsj2;
-	}
-	/**
-	* getV_jaaymc(void) 
-	*/
-	public String getV_jaaymc(){
-		return this.V_JAAYMC;
-	}
-	/**
-	*setV_jaaymc(java.lang.String)
-	*/
-	public void setV_jaaymc(String v_jaaymc){
-		this.V_JAAYMC=v_jaaymc;
-	}
-	/**
-	* getTs(void) 
-	*/
-	public String getTs(){
-		return this.TS;
-	}
-	/**
-	*setTs(java.lang.String)
-	*/
-	public void setTs(String ts){
-		this.TS=ts;
-	}
-	/**
-	* getDr(void) 
-	*/
-	public String getDr(){
-		return this.DR;
-	}
-	/**
-	*setDr(java.lang.String)
-	*/
-	public void setDr(String dr){
-		this.DR=dr;
+	public void setC_kslx(String c_kslx){
+		this.C_KSLX=c_kslx;
 	}
 
 

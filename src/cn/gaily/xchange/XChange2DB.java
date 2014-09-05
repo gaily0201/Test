@@ -345,7 +345,7 @@ public class XChange2DB{
 		log.setTs(DateFormat.getDateTimeInstance().format(new Date()));
 		log.setType("1"); //新增为1,修改未解决为2,修改解决为0
 		log.setError(brief);
-		log.setDetail(detail);
+		log.setDetail(filterCharacter(detail));
 		List<String> sqls = null;
 		String sql = null;
 		try {
@@ -378,6 +378,28 @@ public class XChange2DB{
 			JdbcUtils.release(conn, st, null);
 		}
 		
+	}
+	
+	/**
+	 * <p>方法名称：filterCharacter</p>
+	 * <p>方法描述：过滤字符</p>
+	 * @param value
+	 * @return
+	 * @author xiaoh
+	 * @since  2014-9-5
+	 * <p> history 2014-9-5 xiaoh  创建   <p>
+	 */
+	private static String filterCharacter(String value){
+		if(PubUtils.isEmpty(value)){
+			return "";
+		}
+		if(value.contains("(")){
+			value = value.replaceAll("(", "");
+		}
+		if(value.contains(")")){
+			value = value.replaceAll(")", "");
+		}
+		return value;
 	}
 	
 }

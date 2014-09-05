@@ -20,7 +20,7 @@ public class NamingStrategyUpperFirst implements NamingStrategy {
 				chars[0]=Character.toUpperCase(chars[0]);
 				continue;
 			}
-			if("_".equals(chars[i])&&(i+1)<=chars.length){
+			if("_".equals(String.valueOf(chars[i]))&&(i+1)<=chars.length){
 				chars[i+1] = Character.toUpperCase(chars[i+1]);
 			}
 		}
@@ -29,4 +29,10 @@ public class NamingStrategyUpperFirst implements NamingStrategy {
 		return result;
 	}
 
+	
+	public static void main(String[] args) {
+		NamingStrategyUpperFirst name = new NamingStrategyUpperFirst();
+		System.out.println(name.naming("crpas_baobu_h"));
+		
+	}
 }
