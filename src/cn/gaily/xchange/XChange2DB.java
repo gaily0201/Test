@@ -10,12 +10,13 @@ import java.sql.SQLException;
 import java.sql.Savepoint;
 import java.sql.Statement;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import cn.gaily.xchange.JdbcUtils;
 
 /**
  * <p>Title: XChange2DB</P>
@@ -60,10 +61,10 @@ public class XChange2DB{
 	 * @since  2014-9-3
 	 * <p> history 2014-9-3 xiaoh  创建   <p>
 	 */
-	public static void execSqls(String[] sqls) {
+	public static void execSqls(List<String> sqls) {
 		Savepoint sp = null;
 		
-		if(sqls==null||sqls.length<=0){
+		if(sqls==null||sqls.size()<=0){
 			return;
 		}
 		
@@ -106,8 +107,8 @@ public class XChange2DB{
 	/**
 	 * <p>方法名称：buildIstUpdtSql</p>
 	 * <p>方法描述：通过构建的字段值map,表名构建INSERT语句或UPADATE语句</p>
-	 * @param valueMap		字段值map
-	 * @param tableName		表名
+	 * @param objs			同一类型的实体数组
+	 * @param tableName		表名				与实体的数据库表相对应
 	 * @param pkColumn		表pk字段名称		构建Insert语句时不需传入
 	 * @param pkValue		表pk值			构建Insert语句时不需传入
 	 * @return sql			返回insert语句
@@ -115,61 +116,80 @@ public class XChange2DB{
 	 * @since  2014-9-3
 	 * <p> history 2014-9-3 xiaoh  创建   <p>
 	 */
-	public static String buildIstUpdtSql(Map<String,String> valueMap, String tableName, String pkColumn, String pkValue){
-		boolean recordExist = recordExist(tableName, pkColumn, pkValue);
-		String sql = null;
-		Iterator<Entry<String, String>> it = valueMap.entrySet().iterator();
-		Entry<String,String> entry = null;
-		String field = null;
-		String value = null;
-
-		if(!recordExist){
-			StringBuilder fieldSb = new StringBuilder("INSERT INTO ");
-			fieldSb.append(tableName.toUpperCase()).append("(");
-			StringBuilder valueSb = new StringBuilder("VALUES('");
-			while(it.hasNext()){
-				entry = it.next();
-				field = entry.getKey();
-				value = entry.getValue();
-				fieldSb.append(field).append(",");
-				valueSb.append(value).append("','");
-			}
-			fieldSb.deleteCharAt(fieldSb.length()-1);
-			valueSb.delete(valueSb.length()-2, valueSb.length());
-			valueSb.append(") ");
-			fieldSb.append(") ");
-			sql = fieldSb.append(valueSb).toString();
+	public static List<String> buildIstUpdtSql(Object[] objs, String tableName, String pkColumn, String pkValue){
+		if(objs==null||objs.length<=0){
+			throw new RuntimeException("未传入实体！");
+		}
+		List<Map<String,String>> valueMaps = new ArrayList<Map<String,String>>();
+		Map<String,String> map = null;
+		for(Object obj:objs){
+			map = conveteEntity(obj);
+			valueMaps.add(map);
 		}
 		
-		if(recordExist){
-			StringBuilder fieldSb = new StringBuilder("UPDATE ");
-			fieldSb.append(tableName.toUpperCase()).append(" SET ");
-			StringBuilder whereSb = new StringBuilder(" WHERE ");
-			if(PubUtils.isEmpty(pkColumn)||PubUtils.isEmpty(pkValue)){
-				throw new RuntimeException("必须传入pk字段和pk值");
-			}
-			boolean containsPk = false;
-			while(it.hasNext()){
-				entry = it.next();
-				field = entry.getKey();
-				value = entry.getValue();
-				if(!PubUtils.isEmpty(pkColumn) && field.toUpperCase().equals(pkColumn.toUpperCase())){
-					whereSb.append(field).append("='").append(value).append("'");
-					containsPk = true;
-					continue;
+		if(valueMaps==null||valueMaps.size()<=0){
+			throw new RuntimeException("传入实体失败！");
+		}
+		//保存sql
+		List<String> sqls = new ArrayList<String>();
+		
+		for(Map<String,String> valueMap :valueMaps){
+			boolean recordExist = recordExist(tableName, pkColumn, pkValue);
+			String sql = null;
+			Iterator<Entry<String, String>> it = valueMap.entrySet().iterator();
+			Entry<String,String> entry = null;
+			String field = null;
+			String value = null;
+	
+			if(!recordExist){
+				StringBuilder fieldSb = new StringBuilder("INSERT INTO ");
+				fieldSb.append(tableName.toUpperCase()).append("(");
+				StringBuilder valueSb = new StringBuilder("VALUES('");
+				while(it.hasNext()){
+					entry = it.next();
+					field = entry.getKey();
+					value = entry.getValue();
+					fieldSb.append(field).append(",");
+					valueSb.append(value).append("','");
 				}
-				fieldSb.append(field).append("='").append(value).append("',");
-			}
-			fieldSb.deleteCharAt(fieldSb.length()-1);
-			if(!containsPk){
-				whereSb.append(pkColumn).append("='").append(pkValue).append("'");
+				fieldSb.deleteCharAt(fieldSb.length()-1);
+				valueSb.delete(valueSb.length()-2, valueSb.length());
+				valueSb.append(") ");
+				fieldSb.append(") ");
+				sql = fieldSb.append(valueSb).toString();
+				sqls.add(sql);
 			}
 			
-			fieldSb.append(whereSb);
-			sql = fieldSb.toString();
+			if(recordExist){
+				StringBuilder fieldSb = new StringBuilder("UPDATE ");
+				fieldSb.append(tableName.toUpperCase()).append(" SET ");
+				StringBuilder whereSb = new StringBuilder(" WHERE ");
+				if(PubUtils.isEmpty(pkColumn)||PubUtils.isEmpty(pkValue)){
+					throw new RuntimeException("必须传入pk字段和pk值");
+				}
+				boolean containsPk = false;
+				while(it.hasNext()){
+					entry = it.next();
+					field = entry.getKey();
+					value = entry.getValue();
+					if(!PubUtils.isEmpty(pkColumn) && field.toUpperCase().equals(pkColumn.toUpperCase())){
+						whereSb.append(field).append("='").append(value).append("'");
+						containsPk = true;
+						continue;
+					}
+					fieldSb.append(field).append("='").append(value).append("',");
+				}
+				fieldSb.deleteCharAt(fieldSb.length()-1);
+				if(!containsPk){
+					whereSb.append(pkColumn).append("='").append(pkValue).append("'");
+				}
+				
+				fieldSb.append(whereSb);
+				sql = fieldSb.toString();
+				sqls.add(sql);
+			}
 		}
-		
-		return sql;
+		return sqls;
 	}
 	
 	/**
@@ -182,7 +202,7 @@ public class XChange2DB{
 	 * @since  2014-9-3
 	 * <p> history 2014-9-3 xiaoh  创建   <p>
 	 */
-	public static Map<String, String> conveteEntity(Object obj){
+	private static Map<String, String> conveteEntity(Object obj){
 		Map<String,Method> methodMap = new HashMap<String,Method>();
 		Field[] fields =  obj.getClass().getDeclaredFields();
 		Method[] methods =  obj.getClass().getDeclaredMethods();
@@ -311,9 +331,13 @@ public class XChange2DB{
 		log.setType("1"); //新增为1,修改未解决为2,修改解决为0
 		log.setError(brief);
 		log.setDetail(detail);
+		List<String> sqls = null;
 		String sql = null;
 		try {
-			sql = buildIstUpdtSql(conveteEntity(log), LOG_TABLENAME, null, null);
+			sqls = buildIstUpdtSql(new XChangeLog[]{log}, LOG_TABLENAME, null, null);
+			if(sqls!=null&& sqls.size()==1){
+				sql = sqls.get(0);
+			}
 		} catch (IllegalArgumentException e1) {
 			e1.printStackTrace();
 		}
