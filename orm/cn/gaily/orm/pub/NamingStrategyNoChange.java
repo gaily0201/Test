@@ -13,5 +13,4 @@ public class NamingStrategyNoChange implements NamingStrategy {
 	public String naming(String value) {
 		return value;
 	}
-
 }

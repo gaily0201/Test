@@ -1,4 +1,4 @@
-package cn.gaily.vo;
+package cn.gaily.orm.vos;
 import cn.gaily.orm.annotation.Column;
 import cn.gaily.orm.annotation.Table;
 import cn.gaily.orm.annotation.PrimaryKey;
@@ -9,13 +9,35 @@ $field.toUpperCase().substring(0,1)$field.substring(1)##
 #end
 
 /**
- * <p>Title: $!{tableName}VO</P>
+ * <p>Title: $!{entityName}VO</P>
  * <p>Description: </p>
  * @author xiaoh
  * @version 1.0
  * @since $!{nowDate}
  */
 @Table(tableName="$!{realTableName}")
-public class $!{tableName}VO {
+public class $!{entityName}VO {
+#foreach ($field in $fields)	
+	/**
+	* $!{field.columnName.toUpperCase()} $!{field.comment}
+	*/
+	@Column(columnName="${field.columnName}",dataType="${field.dataType}",dataLength=${field.dataLength},nullAble="${field.nullAble}",comment="${field.comment}")
+	private String ${field.columnName.toUpperCase()} = "${field.columnName}";
+#end
+#foreach ($value in $fields)
+	/**
+	* get#initUpperCase(${value.columnName})(void) 
+	*/
+	public String get#initUpperCase(${value.columnName})(){
+		return this.${value.columnName.toUpperCase()};
+	}
+	/**
+	*set#initUpperCase(${value.columnName})(java.lang.String)
+	*/
+	public void set#initUpperCase(${value.columnName})(String ${value.columnName}){
+		this.${value.columnName.toUpperCase()}=${value.columnName};
+	}
+#end
+
 
 }

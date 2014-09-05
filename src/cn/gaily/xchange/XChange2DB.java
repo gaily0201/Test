@@ -265,7 +265,7 @@ public class XChange2DB{
 			return false;
 		}
 		try {
-			if(conn.isClosed()){
+			if(conn==null||conn.isClosed()){
 				conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
 			}
 		} catch (SQLException e1) {
@@ -305,8 +305,13 @@ public class XChange2DB{
 		if(PubUtils.isEmpty(tableName)){
 			return false;
 		}
-		
-		conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
+		try {
+			if(conn==null||conn.isClosed()){
+				conn = JdbcUtils.getConnection(DB_USERNAME, DB_PASSWORD);
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		try {
 			pst = conn.prepareStatement(checkTableExistSql);
 			pst.setString(1, tableName.toUpperCase());

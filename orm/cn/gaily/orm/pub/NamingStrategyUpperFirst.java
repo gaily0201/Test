@@ -11,7 +11,22 @@ public class NamingStrategyUpperFirst implements NamingStrategy {
 
 	@Override
 	public String naming(String value) {
-		return null;
+		if(PubUtils.isEmpty(value)){
+			return "";
+		}
+		char[] chars = value.toCharArray();
+		for(int i=0;i<chars.length;i++){
+			if(i==0){
+				chars[0]=Character.toUpperCase(chars[0]);
+				continue;
+			}
+			if("_".equals(chars[i])&&(i+1)<=chars.length){
+				chars[i+1] = Character.toUpperCase(chars[i+1]);
+			}
+		}
+		String result = String.valueOf(chars);
+		result = result.replaceAll("_","");
+		return result;
 	}
 
 }
