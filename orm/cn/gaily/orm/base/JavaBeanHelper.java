@@ -107,23 +107,32 @@ public class JavaBeanHelper {
 		
 		fieldList = new ArrayList<FieldBean>();
 		FieldBean field = null;
+		boolean find = true;
 		try {
-			String sql = ResourceManager.realqueryFiledSql;
-			if(sql.equals(ResourceManager.standardqueryFiledSql)){
-				tableName = tableName.toUpperCase();
-			}
-			pst = conn.prepareStatement(ResourceManager.realqueryFiledSql);
-			pst.setString(1, tableName);
-			rs = pst.executeQuery();
-			while(rs.next()){
-				field = new FieldBean();
-				field.setColumnName(PubUtils.getString(rs.getString(1)).toLowerCase());
-				field.setDataType(PubUtils.getString(rs.getString(2)));
-				field.setDataLength(PubUtils.getString(rs.getString(3)));
-				field.setNullAble(PubUtils.getString(rs.getString(4)));
-				field.setComment(PubUtils.getString(rs.getString(5)));
-				field.setPrimaryKey(PubUtils.getString(rs.getString(6)));
-				fieldList.add(field);
+			while(find){
+				String sql = null;
+				if(find){
+					sql = ResourceManager.realqueryFiledSql;
+				}else{
+					sql = ResourceManager.realqueryFiledSql1;
+				}
+				if(sql.equals(ResourceManager.standardqueryFiledSql)){
+					tableName = tableName.toUpperCase();
+				}
+				pst = conn.prepareStatement(ResourceManager.realqueryFiledSql);
+				pst.setString(1, tableName);
+				rs = pst.executeQuery();
+				while(rs.next()){
+					find = false;
+					field = new FieldBean();
+					field.setColumnName(PubUtils.getString(rs.getString(1)).toLowerCase());
+					field.setDataType(PubUtils.getString(rs.getString(2)));
+					field.setDataLength(PubUtils.getString(rs.getString(3)));
+					field.setNullAble(PubUtils.getString(rs.getString(4)));
+					field.setComment(PubUtils.getString(rs.getString(5)));
+					field.setPrimaryKey(PubUtils.getString(rs.getString(6)));
+					fieldList.add(field);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
