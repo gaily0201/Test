@@ -20,7 +20,6 @@ import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.NamingStrategy;
 import cn.gaily.orm.pub.PubUtils;
 import cn.gaily.orm.pub.ResourceManager;
-import cn.gaily.orm.vos.XchangelogVO;
 
 /**
  * <p>Title: ReflectTableHelper</P>
@@ -186,10 +185,4 @@ public class ReflectTableHelper {
 		return tableName;
 	}
 	
-	
-	public static void main(String[] args) {
-		String sql = reflectSql(XchangelogVO.class);
-		boolean result = exeCreate(sql);
-		System.out.println(result);
-	}
 }

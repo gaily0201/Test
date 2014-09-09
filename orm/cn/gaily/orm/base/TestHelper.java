@@ -11,8 +11,6 @@ import java.util.List;
 import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.PubUtils;
 import cn.gaily.orm.pub.ResourceManager;
-import cn.gaily.orm.vos.CrpasGajAjxxHVO;
-import cn.gaily.orm.vos.OrgOrgsVO;
 import cn.gaily.orm.vos.XchangelogVO;
 
 /**
@@ -26,8 +24,8 @@ public class TestHelper {
 
 	public static void main(String[] args) {
 //		testJavaBeanHelper();
-//		testReflectTableHelper();
-		testBackupHelper();
+		testReflectTableHelper();
+//		testBackupHelper();
 	}
 	
 	
@@ -37,7 +35,7 @@ public class TestHelper {
 		if(file.exists()){
 			file.delete();
 		}
-		BackupHelper.backup(CrpasGajAjxxHVO.class, file);
+//		BackupHelper.backup(CrpasGajAjxxHVO.class, file);
 	}
 	
 	/*
@@ -53,11 +51,7 @@ public class TestHelper {
 	 */
 	public static void testJavaBeanHelper(){
 		JavaBeanHelper helper = new JavaBeanHelper();
-//		List<String> tables = getAllTables();
-//		for(String s: tables){
-//			helper.buildEntity(s);
-//		}
-		helper.buildEntity("crpas_gaj_ajxx_h");
+		helper.buildEntity("xchangelog");
 	}
 	
 	

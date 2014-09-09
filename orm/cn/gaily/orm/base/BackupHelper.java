@@ -2,9 +2,7 @@ package cn.gaily.orm.base;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -19,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import cn.gaily.orm.annotation.Column;
 import cn.gaily.orm.annotation.Table;
 import cn.gaily.orm.javabean.IBean;
@@ -27,7 +24,6 @@ import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.NamingStrategy;
 import cn.gaily.orm.pub.PubUtils;
 import cn.gaily.orm.pub.ResourceManager;
-import cn.gaily.orm.vos.OrgOrgsVO;
 
 /**
  * <p>Title: BackupHelper</P>
@@ -353,17 +349,5 @@ public class BackupHelper {
 		pageSql.append(") RESULT WHERE RN>").append(startRecord);
 		return pageSql.toString();
 	}
-	
-	
-	public static void main(String[] args) {
-		File file = new File("c:\\org_orgs.sql");
-		if(file.exists()){
-			file.delete();
-		}
-		backup(OrgOrgsVO.class, file);
-	}
-	
-	
-	
 	
 }
