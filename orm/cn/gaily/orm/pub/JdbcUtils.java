@@ -19,8 +19,8 @@ public class JdbcUtils{
 	private static Connection 		conn 	= null;
 	private static Statement 		st 		= null;
 	private static String 		DRIVER 		= "oracle.jdbc.driver.OracleDriver";
-	private static String 		URL 		= "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
-	private static String 		DEFAULT_USERNAME 	= "uap63";
+	private static String 		URL 		= "jdbc:oracle:thin:@192.168.1.100:1521:orcl";
+	private static String 		DEFAULT_USERNAME 	= "uap63_test";
 	private static String 		DEFAULT_PASSWORD 	= "1";
 	
 	public JdbcUtils(String username, String password){
@@ -78,16 +78,19 @@ public class JdbcUtils{
 		if(rs!=null){
 			try{
 				rs.close();
+				rs = null;
 			} catch (SQLException e) {
 			}finally{
 				if(st!=null){
 					try{
 						st.close();
+						st = null;
 					}catch(SQLException e){
 					}finally{
 						if(conn!=null){
 							try{
 								conn.close();
+								conn =null;
 							}catch(SQLException e){
 							}
 						}

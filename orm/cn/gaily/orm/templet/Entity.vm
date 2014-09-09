@@ -2,7 +2,7 @@ package cn.gaily.orm.vos;
 import cn.gaily.orm.annotation.Column;
 import cn.gaily.orm.annotation.Table;
 import cn.gaily.orm.annotation.PrimaryKey;
-
+import cn.gaily.orm.javabean.IBean;
 ##首字母大写
 #macro(initUpperCase $field)
 $field.toUpperCase().substring(0,1)$field.substring(1)##
@@ -16,11 +16,14 @@ $field.toUpperCase().substring(0,1)$field.substring(1)##
  * @since $!{nowDate}
  */
 @Table(tableName="$!{realTableName}")
-public class $!{entityName}VO {
+public class $!{entityName}VO implements IBean{
 #foreach ($field in $fields)	
 	/**
 	* $!{field.columnName.toUpperCase()} $!{field.comment}
 	*/
+#if(${field.primaryKey}=='Y')
+	@PrimaryKey
+#end
 	@Column(columnName="${field.columnName}",dataType="${field.dataType}",dataLength=${field.dataLength},nullAble="${field.nullAble}",comment="${field.comment}")
 	private String ${field.columnName.toUpperCase()} = "${field.columnName}";
 #end

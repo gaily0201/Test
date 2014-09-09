@@ -20,6 +20,14 @@ public class FieldBean {
 	
 	public String comment;
 	
+	public String primaryKey;
+	
+	public String getPrimaryKey() {
+		return primaryKey;
+	}
+	public void setPrimaryKey(String primaryKey) {
+		this.primaryKey = primaryKey;
+	}
 	public String getColumnName() {
 		return columnName;
 	}

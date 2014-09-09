@@ -1,5 +1,6 @@
 package cn.gaily.orm.base;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,9 @@ import java.util.List;
 import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.PubUtils;
 import cn.gaily.orm.pub.ResourceManager;
+import cn.gaily.orm.vos.CrpasGajAjxxHVO;
+import cn.gaily.orm.vos.OrgOrgsVO;
+import cn.gaily.orm.vos.XchangelogVO;
 
 /**
  * <p>Title: TestHelper</P>
@@ -21,12 +25,39 @@ import cn.gaily.orm.pub.ResourceManager;
 public class TestHelper {
 
 	public static void main(String[] args) {
-		JavaBeanHelper helper = new JavaBeanHelper();
-		List<String> tables = getAllTables();
-		for(String s: tables){
-			helper.buildEntity(s);
+//		testJavaBeanHelper();
+//		testReflectTableHelper();
+		testBackupHelper();
+	}
+	
+	
+	
+	public static void testBackupHelper(){
+		File file = new File("c:\\crpas_gaj_ajxx_h\\crpas_gaj_ajxx_h.sql");
+		if(file.exists()){
+			file.delete();
 		}
-//		helper.buildEntity("crpas_gaj_ajxx_h");
+		BackupHelper.backup(CrpasGajAjxxHVO.class, file);
+	}
+	
+	/*
+	 * 测试ReflectTableHelper  //注意数据源, 否则表可能被删
+	 */
+	public static void testReflectTableHelper(){
+		String sql = ReflectTableHelper.reflectSql(XchangelogVO.class);
+		ReflectTableHelper.exeCreate(sql);
+	}
+	
+	/*
+	 * 测试JavaBeanHepler
+	 */
+	public static void testJavaBeanHelper(){
+		JavaBeanHelper helper = new JavaBeanHelper();
+//		List<String> tables = getAllTables();
+//		for(String s: tables){
+//			helper.buildEntity(s);
+//		}
+		helper.buildEntity("crpas_gaj_ajxx_h");
 	}
 	
 	

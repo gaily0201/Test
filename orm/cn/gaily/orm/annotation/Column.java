@@ -17,4 +17,5 @@ public @interface Column {
 	public String nullAble() default "Y";
 	
 	public String comment() default "";
+	
 }

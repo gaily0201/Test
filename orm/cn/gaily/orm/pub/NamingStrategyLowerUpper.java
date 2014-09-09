@@ -28,6 +28,8 @@ public class NamingStrategyLowerUpper implements NamingStrategy {
 			if(Character.isUpperCase(chars[i])){
 				resultList.add('_');
 				resultList.add(Character.toLowerCase(chars[i]));
+			}else{
+				resultList.add(Character.toLowerCase(chars[i]));
 			}
 		}
 		char[] result = new char[resultList.size()];

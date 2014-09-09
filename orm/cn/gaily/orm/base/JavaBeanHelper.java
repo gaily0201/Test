@@ -9,11 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-
 import cn.gaily.orm.javabean.FieldBean;
 import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.NamingStrategy;
@@ -33,7 +31,7 @@ public class JavaBeanHelper {
 	private static PreparedStatement pst;
 	private static ResultSet rs;
 	
-	private static String entityTempletPath = "orm/cn/gaily/orm/templet/Entity.vm";
+	
 
 	private static NamingStrategy name = NamingStrategy.UPPERFIRST;
 	
@@ -54,7 +52,7 @@ public class JavaBeanHelper {
 		
 		VelocityEngine ve = new VelocityEngine();
 		ve.init();
-		Template t = ve.getTemplate(entityTempletPath, ResourceManager.VE_CHARACTER);
+		Template t = ve.getTemplate(ResourceManager.entityTempletPath, ResourceManager.VE_CHARACTER);
 
 		VelocityContext vc = new VelocityContext();
 		vc.put("realTableName", tableName);
@@ -119,6 +117,7 @@ public class JavaBeanHelper {
 				field.setDataLength(PubUtils.getString(rs.getString(3)));
 				field.setNullAble(PubUtils.getString(rs.getString(4)));
 				field.setComment(PubUtils.getString(rs.getString(5)));
+				field.setPrimaryKey(PubUtils.getString(rs.getString(6)));
 				fieldList.add(field);
 			}
 		} catch (SQLException e) {

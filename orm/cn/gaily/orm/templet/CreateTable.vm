@@ -1,0 +1,6 @@
+CREATE TABLE $!{tableName}(
+#foreach($field in $fields)
+	${field.columnName} ${field.dataType}(${field.dataLength}) #if(${field.nullAble}=="N") NOT NULL#end #if(${field.primaryKey}=="Y") PRIMARY KEY#end #if(${fields.size()}!=${velocityCount}),#end
+		
+#end
+)
