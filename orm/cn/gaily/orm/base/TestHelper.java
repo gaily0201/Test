@@ -7,11 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.PubUtils;
 import cn.gaily.orm.pub.ResourceManager;
-import cn.gaily.orm.vos.XchangelogVO;
 
 /**
  * <p>Title: TestHelper</P>
@@ -23,11 +21,10 @@ import cn.gaily.orm.vos.XchangelogVO;
 public class TestHelper {
 
 	public static void main(String[] args) {
-//		testJavaBeanHelper();
-		testReflectTableHelper();
+		testJavaBeanHelper();
+//		testReflectTableHelper();
 //		testBackupHelper();
 	}
-	
 	
 	
 	public static void testBackupHelper(){
@@ -42,8 +39,8 @@ public class TestHelper {
 	 * 测试ReflectTableHelper  //注意数据源, 否则表可能被删
 	 */
 	public static void testReflectTableHelper(){
-		String sql = ReflectTableHelper.reflectSql(XchangelogVO.class);
-		ReflectTableHelper.exeCreate(sql);
+//		String sql = ReflectTableHelper.reflectSql(XchangelogVO.class);
+//		ReflectTableHelper.exeCreate(sql);
 	}
 	
 	/*

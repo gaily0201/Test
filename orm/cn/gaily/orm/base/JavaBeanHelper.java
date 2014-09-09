@@ -7,11 +7,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+
 import cn.gaily.orm.javabean.FieldBean;
 import cn.gaily.orm.pub.JdbcUtils;
 import cn.gaily.orm.pub.NamingStrategy;
@@ -58,6 +62,7 @@ public class JavaBeanHelper {
 		vc.put("realTableName", tableName);
 		vc.put("entityName", name.naming(tableName));
 		vc.put("fields", fieldList);
+		vc.put("nowDate", SimpleDateFormat.getDateTimeInstance().format(new Date()));
 		
 		File file = new File(System.getProperty("user.dir")+ResourceManager.VO_SAVEPATH, name.naming(tableName)+"VO.java");
 		if(!file.exists()){

@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PubUtils {
 
-	public static final String PROPERTY_FILEPATH ="config.properties";
+	public static final String PROPERTY_FILEPATH ="cn/gaily/orm/pub/config.properties";
 	
 	public static boolean isEmpty(String value){
 		return value!=null&&!"".equals(value.trim())?false:true;
@@ -45,7 +45,8 @@ public class PubUtils {
 		String value = "";
         try {
 //        	fis = new FileInputStream(PROPERTY_FILEPATH);
-        	fis = PubUtils.class.getResourceAsStream(PROPERTY_FILEPATH);
+//        	fis = PubUtils.class.getResourceAsStream(PROPERTY_FILEPATH);
+        	fis = PubUtils.class.getClassLoader().getResourceAsStream(PROPERTY_FILEPATH);
 			prop.load(fis);
 			value = prop.getProperty(key);
 		} catch (IOException e) {

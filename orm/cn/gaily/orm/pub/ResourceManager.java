@@ -23,8 +23,10 @@ public class ResourceManager {
 	public static String VO_SAVEPATH = PubUtils.getProperty("VO_SAVEPATH");
 	//velocity
 	public static String VE_CHARACTER = "UTF-8";
-	public static String entityTempletPath = "orm/cn/gaily/orm/templet/Entity.vm";
-	public static String createTableTempletPath = "orm/cn/gaily/orm/templet/CreateTable.vm";
+//	public static String entityTempletPath = "orm/cn/gaily/orm/templet/Entity.vm";
+//	public static String createTableTempletPath = "orm/cn/gaily/orm/templet/CreateTable.vm";
+	public static String entityTempletPath = PubUtils.getProperty("entityTempletPath");
+	public static String createTableTempletPath = PubUtils.getProperty("createTableTempletPath");
 	
 	public static String checkTableExistSql="SELECT COUNT(1) FROM USER_TABLES WHERE TABLE_NAME=?";
 	public static String dropTableSql="DROP TABLE ?";
