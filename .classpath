@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="orm"/>
+	<classpathentry kind="src" path="hibernate"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-common-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-4.9.0.jar"/>
@@ -10,6 +11,15 @@
 	<classpathentry kind="lib" path="lib/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-1.7.jar" sourcepath="C:/Users/ctt/Desktop/velocity-1.7/velocity-1.7/src"/>
 	<classpathentry kind="lib" path="lib/velocity-1.7-dep.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-commons-annotations-4.0.2.Final.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-core-4.2.5.Final.jar" sourcepath="E:/开源包/hibernate-release-4.2.5.Final/project"/>
+	<classpathentry kind="lib" path="lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="lib/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-1.4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
