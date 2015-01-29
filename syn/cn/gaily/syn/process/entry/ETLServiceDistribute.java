@@ -52,8 +52,8 @@ public class ETLServiceDistribute implements Runnable {
 		if(synType==PubConstant.SynType.SRC_DESC){
 			String[] tabNames = config.getTabNames();
 			for(String tabName:tabNames){
-				valueList = queryTempData(srcds, PubConstant.TEMP_PREFIX+tabName);
-				canBatch= isCanBatch(valueList);
+//				valueList = queryTempData(srcds, PubConstant.TEMP_PREFIX+tabName);
+//				canBatch= isCanBatch(valueList);
 				
 			}
 		}else if(synType==PubConstant.SynType.DESC_SRC){
