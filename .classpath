@@ -3,6 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="orm"/>
 	<classpathentry kind="src" path="hibernate"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="syn"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-common-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-4.9.0.jar"/>

@@ -463,6 +463,8 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 				bar.setValue(bar.getMinimum());
 			}
 			
+			table.getSelectionModel().setSelectionInterval(100, 110);
+			table.scrollRectToVisible(table.getCellRect(110, 1, true));
 		}
 	}
 	
