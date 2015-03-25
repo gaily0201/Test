@@ -157,6 +157,7 @@ public class QueryServiceLucene implements ResourceManager{
 		buildLuceneIndex(rs, TextField.class);
 	}
 	
+	
 	/**
 	 * <p>方法名称：buildLuceneIndex</p>
 	 * <p>方法描述：创建索引</p>
@@ -214,7 +215,6 @@ public class QueryServiceLucene implements ResourceManager{
 			}
 		}
 	}
-	
 	
 	/**
 	 * <p>方法名称：deleteAllIndex</p>

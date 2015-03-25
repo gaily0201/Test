@@ -2,19 +2,14 @@ package cn.gaily.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -24,7 +19,6 @@ import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -36,17 +30,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
-import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
-import org.apache.lucene.util.Version;
+import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
 
 import cn.gaily.pub.PubUtils;
 import cn.gaily.pub.ResourceManager;
@@ -130,6 +122,8 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 	}
 
 	private void initUI() {
+		
+		initTheam();
 		JPanel panel = new JPanel(layout);
 		JPanel queryPanel = new JPanel();
 		queryPanel.add(queryLable);
@@ -184,6 +178,7 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 		scrollPane.setVisible(true);
 		
 		setCompPrefrece(queryText, 500, Color.RED);
+		queryText.setPreferredSize(new Dimension(500, 30));
 		setCompPrefrece(setTitleField, 50, null);
 		setCompPrefrece(foldNameField, 0, null);
 		setCompPrefrece(setLabel, 0, Color.LIGHT_GRAY);
@@ -199,10 +194,10 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 		translatArea.setEditable(false);
 		
 		table.setRowHeight(24);
-		table.setBackground(Color.LIGHT_GRAY);
-		table.setFont(new Font("宋体", Font.PLAIN, 14));
-		table.setForeground(Color.BLACK);
-		table.addMouseListener(new MouseAdapter() {
+//		table.setBackground(Color.LIGHT_GRAY);
+//		table.setFont(new Font("宋体", Font.PLAIN, 14));
+//		table.setForeground(Color.BLACK);
+		table.addMouseListener(new MouseAdapter() {  //TODO
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(e!=null &&e.getClickCount()==2){
@@ -216,6 +211,8 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 				}
 			}
 		});
+		table.setAutoCreateRowSorter(true);
+		
 		refreshData();
 		
 		hidArea.setLineWrap(true);
@@ -253,6 +250,18 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 		passwordField.setText(ResourceManager.DEFAULT_PASSWORD);
 		ipField.setText(ResourceManager.DEFAULT_IP);
 		dbNameField.setText(ResourceManager.DEFAULT_DBNAME);
+	}
+
+	private void initTheam() {
+		testConnectButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.blue));
+		transSqlButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.green));
+		initButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
+		setButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.normal));
+		
+		confirmButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.red));
+		resetButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
+		hidButton.setUI(new BEButtonUI().setNormalColor(BEButtonUI.NormalColor.lightBlue));
+		
 	}
 
 	@Override
@@ -463,8 +472,8 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 				bar.setValue(bar.getMinimum());
 			}
 			
-			table.getSelectionModel().setSelectionInterval(100, 110);
-			table.scrollRectToVisible(table.getCellRect(110, 1, true));
+//			table.getSelectionModel().setSelectionInterval(100, 110); //默认选中第几条到第几条
+//			table.scrollRectToVisible(table.getCellRect(110, 1, true));//滚动显示到
 		}
 	}
 	
@@ -655,9 +664,13 @@ public class CommentFrameByLucene extends JFrame implements ActionListener {
 		if(!propFile.exists()){
 			PubUtils.copyPropFileToLocal();
 		}
-		
-		CommentFrameByLucene frame = new CommentFrameByLucene();
-		frame.setVisible(true);
+		try{
+	        org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+	        UIManager.put("RootPane.setupButtonVisible", false);
+	    }catch(Exception e){
+	    }
+			CommentFrameByLucene frame = new CommentFrameByLucene();
+			frame.setVisible(true);
 		
 //		String[] keyword = new String[]{"SELECT","DISTINCT","FROM","WHERE"};
 //		String sql ="SELECT DISTINCT a.v_ajbh a ,a.v_ajmc b ,a.pk_org c FROM crpas_gaj_ajxx_h a;";

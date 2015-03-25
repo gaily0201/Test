@@ -5,6 +5,8 @@
 	<classpathentry kind="src" path="hibernate"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="syn"/>
+	<classpathentry kind="src" path="threadTest"/>
+	<classpathentry kind="src" path="quartz"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-common-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-smartcn-4.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-4.9.0.jar"/>
@@ -30,6 +32,14 @@
 	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="lib/mail-1.4.7.jar"/>
 	<classpathentry kind="lib" path="lib/metastore-5.1.0.0-752.jar"/>
+	<classpathentry kind="lib" path="lib/beautyeye_lnf.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/quartz-2.2.1.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/quartz-jobs-2.2.1.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/slf4j-log4j12-1.6.6.jar"/>
+	<classpathentry kind="lib" path="quartz_lib/jta.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

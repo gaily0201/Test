@@ -12,6 +12,8 @@ public interface ResourceManager {
 	public static final String INDEX_PATH = DISK+File.separator+PubUtils.getProperty("PATH");
 	public static final String savePath = "C:\\prop.properties";
 
+	public static final String SYS_FILE_INDEX = "c:\\sys_index\\";
+	
 	//默认设置，不能修改
 	public static final String FIELD_NAME = "name";
 	public static final String FIELD_COMMENT = "comment";

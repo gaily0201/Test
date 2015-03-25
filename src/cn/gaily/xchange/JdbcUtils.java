@@ -88,24 +88,22 @@ public class JdbcUtils{
 				rs.close();
 				rs = null;
 			} catch (SQLException e) {
-			}finally{
-				if(st!=null){
-					try{
-						st.close();
-						st  =null;
-					}catch(SQLException e){
-					}finally{
-						if(conn!=null){
-							try{
-								conn.close();
-								conn = null;
-							}catch(SQLException e){
-							}
-						}
-					}
-				}
 			}
 		}
-	}
+		if(st!=null){
+			try{
+				st.close();
+				st  =null;
+			}catch(SQLException e){
+			}
+		}
+		if(conn!=null){
+			try{
+				conn.close();
+				conn = null;
+			}catch(SQLException e){
+			}
+		}
+}
 	
 }
